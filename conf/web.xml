@@ -22,28 +22,13 @@
    </servlet>
    
    <servlet>
-     <servlet-name>xcrawlerauthenticate</servlet-name>
-     <servlet-class>edu.upenn.cis455.servlet.XCrawlerAuthenticate</servlet-class> 
-   </servlet>
-   
-   <servlet>
-     <servlet-name>xcrawlernewaccount</servlet-name>
-     <servlet-class>edu.upenn.cis455.servlet.XCrawlerNewAccount</servlet-class> 
+     <servlet-name>xcrawlerlogout</servlet-name>
+     <servlet-class>edu.upenn.cis455.servlet.XCrawlerLogout</servlet-class> 
    </servlet>
    
    <servlet>
      <servlet-name>xcrawlerinvalidlogin</servlet-name>
      <servlet-class>edu.upenn.cis455.servlet.XCrawlerInvalidLogin</servlet-class> 
-   </servlet>
-   
-   <servlet>
-     <servlet-name>xcrawlercreateaccount</servlet-name>
-     <servlet-class>edu.upenn.cis455.servlet.XCrawlerCreateAccount</servlet-class>
-   </servlet>
-   
-   <servlet>
-     <servlet-name>xcrawleraccountexists</servlet-name>
-     <servlet-class>edu.upenn.cis455.servlet.XCrawlerAccountExists</servlet-class>
    </servlet>
    
    <servlet-mapping>
@@ -57,8 +42,8 @@
    </servlet-mapping>
    
    <servlet-mapping>
-     <servlet-name>xcrawlerauthenticate</servlet-name>
-     <url-pattern>/authenticate</url-pattern>
+     <servlet-name>xcrawlerlogout</servlet-name>
+     <url-pattern>/logout</url-pattern>
    </servlet-mapping>
    
    <servlet-mapping>
@@ -67,18 +52,8 @@
    </servlet-mapping> 
    
    <servlet-mapping>
-     <servlet-name>xcrawlernewaccount</servlet-name>
-     <url-pattern>/newaccount</url-pattern>
-   </servlet-mapping>
-
-	<servlet-mapping>
-     <servlet-name>xcrawlercreateaccount</servlet-name>
-     <url-pattern>/createaccount</url-pattern>
-   </servlet-mapping>
-   
-   <servlet-mapping>
-     <servlet-name>xcrawleraccountexists</servlet-name>
-     <url-pattern>/accountexists</url-pattern>
+     <servlet-name>register</servlet-name>
+     <url-pattern>/register.jsp</url-pattern>
    </servlet-mapping>
    
    <!-- add any additional servlets and servlet mappings here -->

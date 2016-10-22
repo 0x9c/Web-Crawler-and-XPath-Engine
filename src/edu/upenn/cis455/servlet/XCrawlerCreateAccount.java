@@ -40,9 +40,7 @@ public class XCrawlerCreateAccount extends HttpServlet{
 				dbStore.addData(user);
 				dbStore.close();
 				session.setAttribute("username", userName);
-				//res.sendRedirect("home");
-				
-				System.out.println("User successfully created!!!");
+				res.sendRedirect("login");
 				
 			}
 			else

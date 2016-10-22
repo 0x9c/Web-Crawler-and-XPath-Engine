@@ -20,7 +20,7 @@ public class XCrawlerLogin extends HttpServlet{
 		out.println("<body>");
 		out.println("<center>");
 		out.println("<h3>LOGIN PAGE</h3><br><br><br>");
-		out.println("<form action=\"authenticate\" method=\"POST\">");
+		out.println("<form action=\"register.jsp\" method=\"POST\">");
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<td>USERNAME :</td><td><input type=\"text\" name=\"username\"></td>");
@@ -29,9 +29,8 @@ public class XCrawlerLogin extends HttpServlet{
 		out.println("<td>PASSWORD :</td><td><input type=\"password\" name=\"password\"></td>");
 		out.println("</tr>");
 		out.println("</table>");
-		out.println("<input type=\"submit\" value=\"LOGIN\">");
+		out.println("<input type=\"submit\" value=\"Submit\">");
 		out.println("</form><br><br>");
-		out.println("<a href=\"newaccount\">Create new Account</a>");
 		out.println("</center>");
 		out.println("</body>");
 		out.println("</HTML>");
