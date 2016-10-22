@@ -31,6 +31,11 @@
      <servlet-class>edu.upenn.cis455.servlet.XCrawlerInvalidLogin</servlet-class> 
    </servlet>
    
+   <servlet>
+     <servlet-name>register</servlet-name>
+     <servlet-class>edu.upenn.cis455.servlet.XCrawlerRegister</servlet-class> 
+   </servlet>
+   
    <servlet-mapping>
      <servlet-name>xpath</servlet-name>
      <url-pattern>/xpath</url-pattern>

@@ -4,15 +4,32 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import edu.upenn.cis455.storage.DBWrapper;
+import edu.upenn.cis455.storage.user.User;
 
 public class XCrawlerLogin extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
+		
+		String storeLocation = getServletContext().getInitParameter("BDBstore");
+		DBWrapper dbStore = new DBWrapper(storeLocation);
+		
+		Cookie[] cookies = req.getCookies();
+		for(Cookie c : cookies){
+			String userName = c.getName();
+			User user = dbStore.getUser(userName);
+			if(user != null) {
+				res.sendRedirect("home");	
+				return;
+			}
+		}
 		
 		PrintWriter out = res.getWriter();
 		
