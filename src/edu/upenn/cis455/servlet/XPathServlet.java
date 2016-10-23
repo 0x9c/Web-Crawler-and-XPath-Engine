@@ -1,6 +1,18 @@
 package edu.upenn.cis455.servlet;
 
 import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import edu.upenn.cis455.storage.DBWrapper;
+import edu.upenn.cis455.storage.user.User;
 
 @SuppressWarnings("serial")
 public class XPathServlet extends HttpServlet {
@@ -17,10 +29,8 @@ public class XPathServlet extends HttpServlet {
 	}
 
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		/* TODO: Implement user interface for XPath engine here */
-
-		
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		res.sendRedirect("login");
 	}
 
 }
