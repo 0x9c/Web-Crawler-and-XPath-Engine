@@ -23,9 +23,7 @@ public class PageDownloader {
 	public static void download(String url){
 		long c0 = Calendar.getInstance().getTime().getTime();
 		Client client = new Client(url);
-		System.out.println("Client established : " + (Calendar.getInstance().getTime().getTime() - c0)/1000);
 		InputStream inputStream = client.executeGET(true);
-		System.out.println("client GET : " + (Calendar.getInstance().getTime().getTime() - c0)/1000);
 		ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
 		int next = -1;
 		try{
@@ -39,7 +37,7 @@ public class PageDownloader {
 		catch(IOException e){
 			e.printStackTrace();
 		}
-		
+		RobotCache.setCurrentTime(url);
 		db.sync();
 	}
 }

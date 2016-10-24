@@ -32,7 +32,7 @@ public class XPathCrawler {
 		urlQueue.pushURL(startURL);
 		while(!urlQueue.isEmpty()) {
 			String curURL = urlQueue.popURL();
-			System.out.println("Current URL : " + curURL);
+			//System.out.println("Current URL : " + curURL);
 			try{
 				/* If the current URL doesn't match delay requirement, push it into the end of Queue */
 				while(!RobotCache.checkDelay(curURL)) {
@@ -40,24 +40,27 @@ public class XPathCrawler {
 					urlQueue.pushURL(curURL);
 					curURL = urlQueue.popURL();
 				}
+				if(!urlQueue.filter(curURL)) continue;
 				PageDownloader.download(curURL);
+				urlQueue.visitedURLs.put(curURL, RobotCache.getLastVisited(curURL));
 				size++;
 				if(size >= maxFileNum) break;
 				System.out.println(curURL + " : Downloading");
 				List<String> links = Processor.extractLink(curURL);
 				for(String url : links) {
 					System.out.println("------> " + url + ": Extracted Link" );
-					if(urlQueue.filter(url)){
-						if(RobotCache.isValid(url)) {
-							urlQueue.pushURL(url);
-						}
-					}
+					if(RobotCache.isValid(url)) {
+						urlQueue.pushURL(url);
+					} 
+//					else {
+//						System.out.println("XXXXXX " + url + ": Not Valid Link" );
+//					}
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 				continue;   // skip this URL
 			}
-			System.out.println(size);
+//			System.out.println(size);
 		}
 		System.out.println(urlQueue.visitedURLs.size());
 		

@@ -36,13 +36,15 @@ public class RobotCache {
 			long lastVisited = robot.getLastVisited();
 			long currentVisiting = cal.getTime().getTime();
 			if(currentVisiting - lastVisited >= robot.getCrawlDelay() * 1000 ) {  // crawl delay in seconds actually
-				robot.setLastVisited();
+//				robot.setLastVisited();
 				return true;
 			} else {
 				return false;
 			}
+		} else {
+			addRobot(url);
+			return true;
 		}
-		return true;
 	}
 	
 	public static void setCurrentTime(String url) {
@@ -50,5 +52,12 @@ public class RobotCache {
 		String hostname = urlinfo.getHostName();
 		Robot robot = robots.get(hostname);
 		robot.setLastVisited();
+	}
+	
+	public static long getLastVisited(String url) {
+		URLInfo urlinfo = new URLInfo(url);
+		String hostname = urlinfo.getHostName();
+		Robot robot = robots.get(hostname);
+		return robot.getLastVisited();
 	}
 }

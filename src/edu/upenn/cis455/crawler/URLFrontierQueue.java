@@ -25,7 +25,7 @@ public class URLFrontierQueue {
 			long crawled_LastModified = visitedURLs.get(url);	
 			if(currentLastModified > crawled_LastModified){
 				visitedURLs.put(url, currentLastModified);
-				return false;
+				return true;
 			}
 			else{
 				System.out.println(url + ": Not Modified");
@@ -45,6 +45,12 @@ public class URLFrontierQueue {
 	
 	public void pushURL(String url){
 		queue.add(url);
+		Client client = new Client(url);
+		//long lastModified = client.getLast_modified();
+		//visitedURLs.put(url, lastModified);
+	}
+	
+	public void setLastModifiedWhenDownloading(String url){
 		Client client = new Client(url);
 		long lastModified = client.getLast_modified();
 		visitedURLs.put(url, lastModified);
