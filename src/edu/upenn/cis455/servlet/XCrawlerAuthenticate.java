@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import edu.upenn.cis455.storage.DBWrapper;
-import edu.upenn.cis455.storage.user.User;
+import edu.upenn.cis455.storage.User;
 
 public class XCrawlerAuthenticate extends HttpServlet{
 	@Override

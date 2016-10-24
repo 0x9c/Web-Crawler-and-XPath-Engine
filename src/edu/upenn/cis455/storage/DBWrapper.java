@@ -2,6 +2,7 @@ package edu.upenn.cis455.storage;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TreeMap;
 
@@ -13,7 +14,7 @@ import com.sleepycat.persist.EntityStore;
 import com.sleepycat.persist.PrimaryIndex;
 import com.sleepycat.persist.StoreConfig;
 
-import edu.upenn.cis455.storage.user.User;
+import edu.upenn.cis455.storage.User;
 
 public class DBWrapper {
 	
@@ -56,6 +57,11 @@ public class DBWrapper {
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void sync(){
+		if(store != null) store.sync();
+		if(myEnv != null) myEnv.sync();
 	}
 	
 	public Environment getEnvironment()
@@ -109,131 +115,29 @@ public class DBWrapper {
 		userPIndex.put(user);
 	}
 	
-//	public void addData(URL url)
-//	{
-//		PrimaryIndex<String,URL> urlPIndex = store.getPrimaryIndex(String.class, URL.class);
-//		urlPIndex.put(url);
-//	}
-//	
-//	public void addData(XPath xpath)
-//	{	
-//		PrimaryIndex<String,XPath> xpathPIndex = store.getPrimaryIndex(String.class, XPath.class);
-//		xpathPIndex.put(xpath);
-//	}
-//	
-//	public void addData(Channel channel)
-//	{	
-//		PrimaryIndex<String,Channel> channelPIndex = store.getPrimaryIndex(String.class, Channel.class);
-//		channelPIndex.put(channel);
-//	}
-//	
-//	
+	public void putPage(String url, byte[] content, String type) {
+		Page webpage = new Page();
+		webpage.setContent(content);
+		Calendar cal = Calendar.getInstance();
+    	long current_time = cal.getTime().getTime();
+		webpage.setCrawlTime(current_time);
+		if(type.startsWith("text/html")) webpage.setType("html");
+		else webpage.setType("xml");
+		webpage.setURL(url);
+		PrimaryIndex<String, Page> WebpageIndex = store.getPrimaryIndex(String.class, Page.class);
+		WebpageIndex.put(webpage);
+	}
+
 	public User getUser(String key)
 	{
 		PrimaryIndex<String, User> userPIndex = store.getPrimaryIndex(String.class, User.class);
 		User u = userPIndex.get(key);
 		return u;
 	}
-//	
-//	public URL getURL(String key)
-//	{
-//		PrimaryIndex<String,URL> urlPIndex = store.getPrimaryIndex(String.class, URL.class);
-//		URL u = urlPIndex.get(key);
-//		return u;
-//	}
-//
-//	public XPath getXPath(String xpath) {
-//		
-//		PrimaryIndex<String,XPath> xpathPIndex = store.getPrimaryIndex(String.class, XPath.class);
-//		XPath u = xpathPIndex.get(xpath);
-//		return u;
-//	}
-//
-//	public Channel getChannel(String channelKey) {
-//		
-//		PrimaryIndex<String,Channel> channelPIndex = store.getPrimaryIndex(String.class, Channel.class);
-//		Channel u = channelPIndex.get(channelKey);
-//		return u;
-//		
-//	}
-//	
-//	
-//	public void deleteURL(String key)
-//	{
-//		PrimaryIndex<String,URL> urlPIndex = store.getPrimaryIndex(String.class, URL.class);
-//		urlPIndex.delete(key);
-//	}
-//	
-//	public void deleteUser(String key)
-//	{
-//		PrimaryIndex<String,User> userPIndex = store.getPrimaryIndex(String.class, User.class);
-//		userPIndex.delete(key);
-//	}
-//	
-//	public void deleteChannel(String key)
-//	{
-//		PrimaryIndex<String,Channel> channelPIndex = store.getPrimaryIndex(String.class, Channel.class);
-//		channelPIndex.delete(key);
-//	}
-//	
-//	public void deleteXPath(String key)
-//	{
-//		PrimaryIndex<String,XPath> xpathPIndex = store.getPrimaryIndex(String.class, XPath.class);
-//		xpathPIndex.delete(key);
-//	}
-//	
-//	
-//	public TreeMap<String, ArrayList<String>> allChannels()
-//	{
-//		PrimaryIndex<String,Channel> channelPIndex = store.getPrimaryIndex(String.class, Channel.class);
-//		TreeMap<String, ArrayList<String>> map = new TreeMap<String,ArrayList<String>>();
-//		EntityCursor<String> cursor = channelPIndex.keys();
-//		for(String key : cursor)
-//		{
-//			String channelName = key.split(" ",2)[0];
-//			String userName = key.split(" ",2)[1];
-//			
-//			if(map.containsKey(userName))
-//			{
-//				map.get(userName).add(channelName);
-//			}
-//			else
-//			{
-//				ArrayList<String> channelList = new ArrayList<String>();
-//				channelList.add(channelName);
-//				map.put(userName, channelList);
-//			}
-//		}
-//		
-//		cursor.close();
-//		
-//		return map;
-//	}
-//
-//	public HashMap<String,XPath> allXPaths()
-//	{
-//		PrimaryIndex<String,XPath> xpathPIndex = store.getPrimaryIndex(String.class, XPath.class);
-//		HashMap<String, XPath> map = new HashMap<String, XPath>();
-//		EntityCursor<String> cursor = xpathPIndex.keys();
-//		for(String key : cursor)
-//		{
-//			map.put(key,xpathPIndex.get(key));
-//		}
-//		
-//		cursor.close();
-//		return map;
-//	}
-//
-//	public HashMap<String, URL> allDocuments() {
-//		
-//		PrimaryIndex<String,URL> urlPIndex = store.getPrimaryIndex(String.class, URL.class);
-//		HashMap<String, URL> map = new HashMap<String, URL>();
-//		EntityCursor<String> cursor = urlPIndex.keys();
-//		for(String key : cursor)
-//		{
-//			map.put(key, urlPIndex.get(key));
-//		}
-//		cursor.close();
-//		return map;
-//	}
+	
+	public Page getWebpage(String url) {
+		PrimaryIndex<String, Page> WebpageIndex = store.getPrimaryIndex(String.class, Page.class);
+		return WebpageIndex.get(url);
+	}
+
 }
