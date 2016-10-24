@@ -36,6 +36,11 @@
      <servlet-class>edu.upenn.cis455.servlet.XCrawlerRegister</servlet-class> 
    </servlet>
    
+   <servlet>
+     <servlet-name>xcrawlerUser</servlet-name>
+     <servlet-class>edu.upenn.cis455.servlet.XCrawlerUser</servlet-class> 
+   </servlet>
+   
    <servlet-mapping>
      <servlet-name>xpath</servlet-name>
      <url-pattern>/xpath</url-pattern>
@@ -49,6 +54,11 @@
    <servlet-mapping>
      <servlet-name>xcrawlerlogout</servlet-name>
      <url-pattern>/logout</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+     <servlet-name>xcrawlerUser</servlet-name>
+     <url-pattern>/user</url-pattern>
    </servlet-mapping>
    
    <servlet-mapping>

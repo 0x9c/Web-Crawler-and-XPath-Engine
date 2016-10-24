@@ -26,7 +26,7 @@ public class XCrawlerLogin extends HttpServlet{
 			String userName = (String)session.getAttribute("username");
 			User user = dbStore.getUser(userName);
 			if(user != null) {
-				res.sendRedirect("home");	
+				res.sendRedirect("user");	
 				System.out.println(userName);
 				return;
 			}

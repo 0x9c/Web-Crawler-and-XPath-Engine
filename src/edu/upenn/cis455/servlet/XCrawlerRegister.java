@@ -29,7 +29,7 @@ public class XCrawlerRegister extends HttpServlet{
 		} else if( user != null && user.getPassword().equals(password)) {
 			HttpSession session = req.getSession();
 			session.setAttribute("username", userName);
-			resp.sendRedirect("home");
+			resp.sendRedirect("user");
 		} else {
 			// user == null 
 			if(userName.isEmpty() || password.isEmpty())
@@ -41,7 +41,7 @@ public class XCrawlerRegister extends HttpServlet{
 				user = new User(userName, password);
 				dbStore.addData(user);
 				session.setAttribute("username", userName);
-				resp.sendRedirect("home");		
+				resp.sendRedirect("user");		
 			}
 		}
 		dbStore.close();
