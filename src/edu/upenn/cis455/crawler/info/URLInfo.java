@@ -4,6 +4,7 @@ public class URLInfo {
 	private String hostName;
 	private int portNo;
 	private String filePath;
+	private String protocol;
 	
 	/**
 	 * Constructor called with raw URL as input - parses URL to obtain host name and file path
@@ -12,13 +13,22 @@ public class URLInfo {
 		if(docURL == null || docURL.equals(""))
 			return;
 		docURL = docURL.trim();
-		if(!docURL.startsWith("http://") || docURL.length() < 8)
+		if(docURL.length() < 8) return;
+		else if(docURL.startsWith("http://")){
+			docURL = docURL.substring(7);
+			protocol = "http";
+		}
+		else if(docURL.startsWith("https://")){
+			docURL = docURL.substring(8);
+			protocol = "https";
+		}
+		else{
 			return;
-		// Stripping off 'http://'
-		docURL = docURL.substring(7);
+		}
 		/*If starting with 'www.' , stripping that off too
 		if(docURL.startsWith("www."))
-			docURL = docURL.substring(4);*/
+			docURL = docURL.substring(4); */
+		
 		int i = 0;
 		while(i < docURL.length()){
 			char c = docURL.charAt(i);
@@ -81,6 +91,10 @@ public class URLInfo {
 	
 	public void setFilePath(String fp){
 		filePath = fp;
+	}
+	
+	public String getProtocol(){
+		return protocol;
 	}
 	
 }
