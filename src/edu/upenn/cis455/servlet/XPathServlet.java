@@ -14,6 +14,11 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet to match both "/" and "/xpath" pattern.
+ * @author cis555
+ *
+ */
 @SuppressWarnings("serial")
 public class XPathServlet extends HttpServlet {
 	

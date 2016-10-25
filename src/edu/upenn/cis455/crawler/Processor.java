@@ -9,6 +9,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+/**
+ * Class to extract link from html body.
+ * @author cis555
+ *
+ */
 public class Processor {
 
 	public static List<String> extractLink(String url){

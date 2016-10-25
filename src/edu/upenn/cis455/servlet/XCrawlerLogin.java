@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet to show Login Page, which check session at the first place
+ * @author cis555
+ *
+ */
 public class XCrawlerLogin extends HttpServlet{
 	
 	@Override

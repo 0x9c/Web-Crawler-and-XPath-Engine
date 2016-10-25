@@ -13,6 +13,11 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * Class to store robot information from specific hostname.
+ * @author cis555
+ *
+ */
 public class Robot {
 	String url;
 	String hostName;

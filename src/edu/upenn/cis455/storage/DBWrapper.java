@@ -16,6 +16,11 @@ import com.sleepycat.persist.StoreConfig;
 
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Basic class to connect Berkeley DB, including add and get User, Page, etc. from Database.
+ * @author cis555
+ *
+ */
 public class DBWrapper {
 	
 	private static String envDirectory = null;

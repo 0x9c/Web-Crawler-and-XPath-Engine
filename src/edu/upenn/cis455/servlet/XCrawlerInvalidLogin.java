@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet to show invalid login page
+ * @author cis555
+ *
+ */
 public class XCrawlerInvalidLogin extends HttpServlet{
 	
 	@Override

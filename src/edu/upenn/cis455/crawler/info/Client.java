@@ -22,6 +22,12 @@ import java.util.regex.Pattern;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * Helper Class to get the information of the given link. Including execute HEAD request for basic info,
+ * as well as execute GET method for html body.
+ * @author cis555
+ *
+ */
 public class Client {
 	private String url;
 	private String hostName;
@@ -136,6 +142,11 @@ public class Client {
 		return false;
 	}
 	
+	/**
+	 * To check if the given url is valid in this maxSize.
+	 * @param maxSize
+	 * @return
+	 */
 	public boolean isValid(int maxSize){
 		return isValidType() && isValidLength(maxSize);
 	}

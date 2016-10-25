@@ -13,6 +13,11 @@ import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 import edu.upenn.cis455.storage.Page;
 
+/**
+ * Servlet used to lookup documents by using URL
+ * @author cis555
+ *
+ */
 public class LookUp extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

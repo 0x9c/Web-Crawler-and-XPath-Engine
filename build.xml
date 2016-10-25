@@ -148,11 +148,11 @@
 		<exec dir="." executable="sudo">
 	        <arg value="cp"/>
 			<arg value="servlet.war"/>
-	        <arg value="/usr/share/jetty8/webapps/"/>
+	        <arg value="/usr/share/jetty/webapps/"/>
 	        <redirector inputstring="cis555password"/>        
 		</exec>
 		
-		<exec dir="/usr/share/jetty8/" executable="sudo">
+		<exec dir="/usr/share/jetty/" executable="sudo">
 	        <arg value="java"/>
 			<arg value="-jar"/>
 	        <arg value="start.jar"/>      

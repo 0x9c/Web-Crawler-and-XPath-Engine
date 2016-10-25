@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Servlet to provide logout service, which invalidate the current session.
+ * @author cis555
+ *
+ */
 public class XCrawlerLogout extends HttpServlet {
 
 	@Override

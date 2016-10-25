@@ -11,6 +11,12 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Basic Servlet to provide register service.
+ * Username exists, login if right password, redirect to invalid page if wrong password.
+ * @author cis555
+ *
+ */
 public class XCrawlerRegister extends HttpServlet{
 	
 	@Override
