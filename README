@@ -11,10 +11,9 @@ Not yet
 
 Any special instructions for building and running your solution?
   (include detailed instructions, or write 'None')
-1. The database path for crawling is set to "./dtianx";
+1. The database path for crawling is set to "/tmp/database/dtianx";
 2. Just followed the instruction in Piazza to set "ant servlet" path into "/usr/share/jetty/webapps/", but basically I am only using jetty8 in my VM. Don't know if it's all good in jetty. If something goes wrong, please try jetty8 instead. Thank you and sorry for inconvenience.
-3. The crawling database is actually under Project Directory, but servlet database should be under Server Directory. The different paths might cause problem when using Lookup Servlet, which is actually under server directory.
-4. Under jetty8 server, the URL to servlet should be added /servlet to make it work. For instance, the home page should be localhost:8080/servlet/ or localhost:8080/servlet/login.
+3. Under jetty8 server, the URL to servlet should be added /servlet to make it work. For instance, the home page should be localhost:8080/servlet/ or localhost:8080/servlet/login.
 
 Did you personally write _all_ the code you are submitting
 (other than code from the course web page)?

@@ -23,6 +23,7 @@ public class URLFrontierQueue {
 	public boolean filter(String url){
 		Client client = new Client(url);
 		if(!client.isValid(maxSize)) {
+			System.out.println(url + ": Not Downloading");
 			return false;
 		}
 		long currentLastModified = client.getLast_modified();
