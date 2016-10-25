@@ -8,7 +8,7 @@
    <display-name>Channel Subscription Servlets</display-name>
    <context-param>
      <param-name>BDBstore</param-name>
-     <param-value>./DBStoreDir</param-value>
+     <param-value>./dtianx</param-value>
    </context-param>
     
    <servlet>
@@ -41,10 +41,25 @@
      <servlet-class>edu.upenn.cis455.servlet.XCrawlerUser</servlet-class> 
    </servlet>
    
+   <servlet>
+     <servlet-name>lookup</servlet-name>
+     <servlet-class>edu.upenn.cis455.servlet.LookUp</servlet-class> 
+   </servlet>
+   
    <servlet-mapping>
      <servlet-name>xpath</servlet-name>
      <url-pattern>/xpath</url-pattern>
    </servlet-mapping>  
+   
+   <servlet-mapping>
+     <servlet-name>xpath</servlet-name>
+     <url-pattern>/</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+     <servlet-name>lookup</servlet-name>
+     <url-pattern>/lookup</url-pattern>
+   </servlet-mapping>
    
    <servlet-mapping>
      <servlet-name>xcrawlerlogin</servlet-name>

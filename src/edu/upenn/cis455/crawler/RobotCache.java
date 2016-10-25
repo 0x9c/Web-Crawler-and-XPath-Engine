@@ -51,6 +51,10 @@ public class RobotCache {
 		URLInfo urlinfo = new URLInfo(url);
 		String hostname = urlinfo.getHostName();
 		Robot robot = robots.get(hostname);
+		if(robot == null) {
+			addRobot(url);
+			robot = robots.get(hostname);
+		}
 		robot.setLastVisited();
 	}
 	

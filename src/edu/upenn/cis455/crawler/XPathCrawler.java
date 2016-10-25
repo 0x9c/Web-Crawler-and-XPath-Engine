@@ -45,18 +45,16 @@ public class XPathCrawler {
 				urlQueue.visitedURLs.put(curURL, RobotCache.getLastVisited(curURL));
 				size++;
 				if(size >= maxFileNum) break;
-				System.out.println(curURL + " : Downloading");
+				System.out.println(curURL + ": Downloading");
 				List<String> links = Processor.extractLink(curURL);
 				for(String url : links) {
-					System.out.println("------> " + url + ": Extracted Link" );
+					//System.out.println("------> " + url + ": Extracted Link" );
 					if(RobotCache.isValid(url)) {
 						urlQueue.pushURL(url);
 					} 
-//					else {
-//						System.out.println("XXXXXX " + url + ": Not Valid Link" );
-//					}
 				}
 			} catch (Exception e) {
+				System.out.println("Error URL: " + curURL);
 				System.out.println(e.getMessage());
 				continue;   // skip this URL
 			}

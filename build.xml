@@ -16,6 +16,10 @@
     <property name="src.test.dir"  location="${build.dir}${file.separator}src${file.separator}test"/>
     <property name="resources.dir" location="${build.dir}${file.separator}resources"/>
     <property name="conf.dir"      location="${build.dir}${file.separator}conf"/>
+	<property name="main-class" value="edu.upenn.cis455.crawler.XPathCrawler"/>
+	<path id="classpath">
+		<fileset dir="${web-inf.lib.dir}" includes="**/*.jar"/>
+	</path>
 
     <target name="compile-xpathengine" description="Compiles the XPath engine">
         <mkdir dir="${classes.dir}"/>
@@ -120,6 +124,7 @@
     </target>
 
     <target name="build" depends="crawler-jar,servlet-war">
+    	<copy file="crawler.jar" tofile="${web-inf.lib.dir}${file.separator}crawl.jar" overwrite="true" />
     </target>
 
     <target name="pack" description="Create an archive for submission">
@@ -127,5 +132,31 @@
         <zipfileset dir="." excludes="target/**,examples/**,**/*.class,submit-hw2.zip,servlet.war,crawler.jar"/>
       </zip>
     </target>
-
+	
+	<target name="crawl" depends="build">
+		<java classname="${main-class}" fork="true">
+			<classpath>
+				<path refid="classpath"/>
+			</classpath>
+			<arg value="http://crawltest.cis.upenn.edu"/>
+			<arg value="./dtianx"/>
+			<arg value="20"/>
+		</java>
+	</target>
+	
+	<target name="servlet" depends="build">
+		<exec dir="." executable="sudo">
+	        <arg value="cp"/>
+			<arg value="servlet.war"/>
+	        <arg value="/usr/share/jetty8/webapps/"/>
+	        <redirector inputstring="cis555password"/>        
+		</exec>
+		
+		<exec dir="/usr/share/jetty8/" executable="sudo">
+	        <arg value="java"/>
+			<arg value="-jar"/>
+	        <arg value="start.jar"/>      
+		</exec>
+	</target>
+	
 </project>

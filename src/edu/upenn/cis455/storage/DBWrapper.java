@@ -128,8 +128,7 @@ public class DBWrapper {
 		WebpageIndex.put(webpage);
 	}
 
-	public User getUser(String key)
-	{
+	public User getUser(String key) {
 		PrimaryIndex<String, User> userPIndex = store.getPrimaryIndex(String.class, User.class);
 		User u = userPIndex.get(key);
 		return u;

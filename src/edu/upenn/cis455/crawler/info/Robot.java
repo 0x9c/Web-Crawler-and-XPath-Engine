@@ -125,7 +125,7 @@ public class Robot {
 		for(String allowpath:allowList){
 			if(allowpath.endsWith("/")){
 				//allowpath = allowpath.substring(0, allowpath.length() - 1);
-				if(path.contains(allowpath)) return true;
+				if(!path.equals(allowpath) && path.contains(allowpath)) return true;
 			}
 			else{
 				if(path.equals(allowpath)) return true;
@@ -134,7 +134,7 @@ public class Robot {
 		for(String disallowpath:disallowList){
 			if(disallowpath.endsWith("/")){
 				//disallowpath = disallowpath.substring(0, disallowpath.length() - 1);
-				if(path.contains(disallowpath)) return false;
+				if(!path.equals(disallowpath) && path.contains(disallowpath)) return false;
 			}
 			else{
 				if(path.equals(disallowpath)) return false;
