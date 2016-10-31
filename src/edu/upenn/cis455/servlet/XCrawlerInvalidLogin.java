@@ -7,12 +7,34 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import edu.upenn.cis455.storage.DBWrapper;
+import edu.upenn.cis455.storage.User;
+
+/**
+ * Servlet to show invalid login page
+ * @author cis555
+ *
+ */
 public class XCrawlerInvalidLogin extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		String storeLocation = getServletContext().getInitParameter("BDBstore");
+		DBWrapper dbStore = new DBWrapper(storeLocation);
+		HttpSession session = req.getSession(false);
+		if(session != null){
+			String userName = (String)session.getAttribute("username");
+			User user = dbStore.getUser(userName);
+			if(user != null) {
+				resp.sendRedirect("user");	
+				System.out.println(userName);
+				return;
+			}
+		}
 		
 		PrintWriter out = resp.getWriter();
 			

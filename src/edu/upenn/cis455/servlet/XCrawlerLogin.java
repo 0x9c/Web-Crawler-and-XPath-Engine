@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet to show Login Page, which check session at the first place
+ * @author cis555
+ *
+ */
 public class XCrawlerLogin extends HttpServlet{
 	
 	@Override
@@ -25,7 +30,7 @@ public class XCrawlerLogin extends HttpServlet{
 			String userName = (String)session.getAttribute("username");
 			User user = dbStore.getUser(userName);
 			if(user != null) {
-				res.sendRedirect("home");	
+				res.sendRedirect("user");	
 				System.out.println(userName);
 				return;
 			}

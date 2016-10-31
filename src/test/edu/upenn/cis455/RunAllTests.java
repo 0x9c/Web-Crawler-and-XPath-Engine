@@ -12,6 +12,11 @@ public class RunAllTests extends TestCase
       Class[]  testClasses = {
         /* TODO: Add the names of your unit test classes here */
         // Class.forName("your.class.name.here") 
+    		  Class.forName("test.edu.upenn.cis455.RobotTest"),
+    		  Class.forName("test.edu.upenn.cis455.DBWrapperTest"),
+    		  Class.forName("test.edu.upenn.cis455.ClientTest"),
+    		  Class.forName("test.edu.upenn.cis455.XPathCrawlerTest"),
+    		  Class.forName("test.edu.upenn.cis455.PageDownloaderTest")
       };   
       
       return new TestSuite(testClasses);

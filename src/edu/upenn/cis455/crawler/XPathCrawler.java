@@ -6,6 +6,11 @@ import java.util.NoSuchElementException;
 
 import edu.upenn.cis455.storage.DBWrapper;
 
+/**
+ * Main class for Crawler, used to start crawl from provided start URL
+ * @author cis555
+ *
+ */
 public class XPathCrawler {
 	private String startURL;
 	private int maxSize;
@@ -28,6 +33,9 @@ public class XPathCrawler {
 		this.maxFileNum = maxFileNum;
 	}
 	
+	/**
+	 * Main method of crawling entry.
+	 */
 	public void crawl() {
 		int size = 0;
 		urlQueue.pushURL(startURL);
@@ -49,15 +57,13 @@ public class XPathCrawler {
 				System.out.println(curURL + ": Downloading");
 				List<String> links = Processor.extractLink(curURL);
 				for(String url : links) {
-					System.out.println("------> " + url + ": Extracted Link" );
+					//System.out.println("------> " + url + ": Extracted Link" );
 					if(RobotCache.isValid(url)) {
 						urlQueue.pushURL(url);
 					} 
-//					else {
-//						System.out.println("XXXXXX " + url + ": Not Valid Link" );
-//					}
 				}
 			} catch (Exception e) {
+				System.out.println("Error URL: " + curURL);
 				System.out.println(e.getMessage());
 				continue;   // skip this URL
 			}

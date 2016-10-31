@@ -8,6 +8,11 @@ import com.sleepycat.persist.model.Entity;
 import com.sleepycat.persist.model.PrimaryKey;
 import com.sleepycat.persist.model.SecondaryKey;
 
+/**
+ * Entity class used to store Page information into database
+ * @author cis555
+ *
+ */
 @Entity
 public class Page {
 	

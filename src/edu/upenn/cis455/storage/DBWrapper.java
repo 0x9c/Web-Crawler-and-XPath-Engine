@@ -16,6 +16,11 @@ import com.sleepycat.persist.StoreConfig;
 
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Basic class to connect Berkeley DB, including add and get User, Page, etc. from Database.
+ * @author cis555
+ *
+ */
 public class DBWrapper {
 	
 	private static String envDirectory = null;
@@ -128,8 +133,7 @@ public class DBWrapper {
 		WebpageIndex.put(webpage);
 	}
 
-	public User getUser(String key)
-	{
+	public User getUser(String key) {
 		PrimaryIndex<String, User> userPIndex = store.getPrimaryIndex(String.class, User.class);
 		User u = userPIndex.get(key);
 		return u;

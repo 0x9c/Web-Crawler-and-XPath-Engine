@@ -6,6 +6,11 @@ import java.util.Queue;
 
 import edu.upenn.cis455.crawler.info.Client;
 
+/**
+ * The URL Frontier class, used for storing URL Queue, as well as visited URLs.
+ * @author cis555
+ *
+ */
 public class URLFrontierQueue {
 	HashMap<String, Long> visitedURLs = new HashMap<String, Long>();
 	Queue<String> queue = new LinkedList<String>();
@@ -18,6 +23,7 @@ public class URLFrontierQueue {
 	public boolean filter(String url){
 		Client client = new Client(url);
 		if(!client.isValid(maxSize)) {
+			System.out.println(url + ": Not Downloading");
 			return false;
 		}
 		long currentLastModified = client.getLast_modified();

@@ -13,6 +13,11 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
+/**
+ * Class to store robot information from specific hostname.
+ * @author cis555
+ *
+ */
 public class Robot {
 	String url;
 	String hostName;
@@ -134,10 +139,16 @@ public class Robot {
 		for(String disallowpath:disallowList){
 			if(disallowpath.endsWith("/")){
 				//disallowpath = disallowpath.substring(0, disallowpath.length() - 1);
-				if(!path.equals(disallowpath) && path.contains(disallowpath)) return false;
+				if(!path.equals(disallowpath) && path.contains(disallowpath)){
+					System.out.println(url + ": Restricted. Not downloading");
+					return false;
+				}
 			}
 			else{
-				if(path.equals(disallowpath)) return false;
+				if(path.equals(disallowpath)) {
+					System.out.println(url + ": Restricted. Not downloading");
+					return false;
+				}
 			}
 		}
 		return true;
