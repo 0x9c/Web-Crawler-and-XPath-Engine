@@ -39,7 +39,7 @@ public class Client {
 		this.portNumber = urlinfo.getPortNo();
 		executeGET(false);
 	}
-	
+
 	/**
 	 * This is the method excuting GET or HEAD. Basically HEAD is called in the Client's Constructor.
 	 * @param isGET true means excuting GET request; false means excuting HEAD request.
@@ -80,8 +80,9 @@ public class Client {
 				
 				String s;
 				s = br.readLine();
-				if(processInitialLine(s)){  // To check if the response valid 
-					while((s = br.readLine()) != null){
+				if(processInitialLine(s)){
+					// To check if the response valid 
+					while((s = br.readLine()) != null) {
 						if(s.equals("")) break;  // The header lines end.
 						Pattern r = Pattern.compile("(.*?): (.*)");
 						Matcher m = r.matcher(s);
@@ -114,6 +115,7 @@ public class Client {
 						return null;
 					}
 				}
+				
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -197,8 +199,9 @@ public class Client {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		String url = "http://www.tutorialspoint.com/java/java_regular_expressions.htm";
+		String url = "http://crawltest.cis.upenn.edu/marie/tpc";
 		Client client = new Client(url);
+		System.out.println("URLInfo:" + client.getPath());
 		InputStream inputStream = client.executeGET(true);
 		if(inputStream != null) {
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -209,7 +212,7 @@ public class Client {
 				}
 				bos.flush();
 				byte[] content = bos.toByteArray();
-				System.out.println(Arrays.toString(content));
+				System.out.println(new String(content, "UTF-8"));
 			} catch(Exception e) {
 				e.printStackTrace();
 			}

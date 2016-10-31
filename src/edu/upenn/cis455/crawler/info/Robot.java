@@ -125,7 +125,7 @@ public class Robot {
 		for(String allowpath:allowList){
 			if(allowpath.endsWith("/")){
 				//allowpath = allowpath.substring(0, allowpath.length() - 1);
-				if(path.contains(allowpath)) return true;
+				if(!path.equals(allowpath) && path.contains(allowpath)) return true;
 			}
 			else{
 				if(path.equals(allowpath)) return true;
@@ -134,7 +134,7 @@ public class Robot {
 		for(String disallowpath:disallowList){
 			if(disallowpath.endsWith("/")){
 				//disallowpath = disallowpath.substring(0, disallowpath.length() - 1);
-				if(path.contains(disallowpath)) return false;
+				if(!path.equals(disallowpath) && path.contains(disallowpath)) return false;
 			}
 			else{
 				if(path.equals(disallowpath)) return false;
@@ -168,7 +168,7 @@ public class Robot {
 	}
 	
 	public static void main(String[] args){
-		Robot r = new Robot("http://www.facebook.com/");
+		Robot r = new Robot("https://www.facebook.com");
 		for(String str : r.allowList) {
 			System.out.println("Allow :" + str);
 		}
@@ -176,5 +176,6 @@ public class Robot {
 		for(String str : r.disallowList) {
 			System.out.println("Disallow : " + str);
 		}
+		System.out.println(r.isURLValid("https://www.facebook.com/"));;
 	}
 }

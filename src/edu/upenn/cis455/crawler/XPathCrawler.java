@@ -2,6 +2,7 @@ package edu.upenn.cis455.crawler;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import edu.upenn.cis455.storage.DBWrapper;
 
@@ -45,7 +46,7 @@ public class XPathCrawler {
 				urlQueue.visitedURLs.put(curURL, RobotCache.getLastVisited(curURL));
 				size++;
 				if(size >= maxFileNum) break;
-				System.out.println(curURL + " : Downloading");
+				System.out.println(curURL + ": Downloading");
 				List<String> links = Processor.extractLink(curURL);
 				for(String url : links) {
 					System.out.println("------> " + url + ": Extracted Link" );
@@ -60,7 +61,7 @@ public class XPathCrawler {
 				System.out.println(e.getMessage());
 				continue;   // skip this URL
 			}
-//			System.out.println(size);
+			System.out.println(size);
 		}
 		System.out.println(urlQueue.visitedURLs.size());
 		
