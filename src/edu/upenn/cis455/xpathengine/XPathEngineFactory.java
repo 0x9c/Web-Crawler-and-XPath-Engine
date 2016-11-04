@@ -16,6 +16,6 @@ public class XPathEngineFactory {
 	}
 	
 	public static DefaultHandler getSAXHandler() {
-		return null;
+		return new SAXHandler();
 	}
 }

@@ -13,6 +13,10 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import org.apache.log4j.Logger;
+
+import edu.upenn.cis455.crawler.URLFrontierQueue;
+
 /**
  * Class to store robot information from specific hostname.
  * @author cis555
@@ -27,6 +31,7 @@ public class Robot {
 	List<String> allowList = new ArrayList<String>();
 	int crawlDelay = 0;
 	long lastVisited = 0;
+	static Logger log = Logger.getLogger(Robot.class);
 	
 	public Robot(String url){		
 		try {
@@ -44,12 +49,13 @@ public class Robot {
 				inputStream = urlConnection.getInputStream();
 			}
 			parseInputStream();
+			setLastVisited();
 		} 
 		catch (MalformedURLException e) { 
 		    e.printStackTrace();
 		} 
 		catch (IOException e) {   
-		    e.printStackTrace();
+		    System.out.println("IOException when getting Robots.txt in " + url);
 		}
 	}
 	
@@ -140,13 +146,13 @@ public class Robot {
 			if(disallowpath.endsWith("/")){
 				//disallowpath = disallowpath.substring(0, disallowpath.length() - 1);
 				if(!path.equals(disallowpath) && path.contains(disallowpath)){
-					System.out.println(url + ": Restricted. Not downloading");
+					log.info(url + ": Restricted. Not downloading");
 					return false;
 				}
 			}
 			else{
 				if(path.equals(disallowpath)) {
-					System.out.println(url + ": Restricted. Not downloading");
+					log.info(url + ": Restricted. Not downloading");
 					return false;
 				}
 			}
@@ -179,7 +185,7 @@ public class Robot {
 	}
 	
 	public static void main(String[] args){
-		Robot r = new Robot("http://www.facebook.com/");
+		Robot r = new Robot("https://www.facebook.com");
 		for(String str : r.allowList) {
 			System.out.println("Allow :" + str);
 		}
@@ -187,5 +193,6 @@ public class Robot {
 		for(String str : r.disallowList) {
 			System.out.println("Disallow : " + str);
 		}
+		System.out.println(r.isURLValid("https://www.facebook.com/"));;
 	}
 }

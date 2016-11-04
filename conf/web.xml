@@ -8,7 +8,7 @@
    <display-name>Channel Subscription Servlets</display-name>
    <context-param>
      <param-name>BDBstore</param-name>
-     <param-value>/tmp/database/dtianx</param-value>
+     <param-value>./dtianx</param-value>
    </context-param>
     
    <servlet>

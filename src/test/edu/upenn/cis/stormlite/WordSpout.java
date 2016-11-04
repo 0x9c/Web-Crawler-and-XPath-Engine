@@ -138,8 +138,7 @@ public class WordSpout implements IRichSpout {
 
 
 	@Override
-	public String getExecutorId() {
-		
+	public String getExecutorId() {	
 		return executorId;
 	}
 
