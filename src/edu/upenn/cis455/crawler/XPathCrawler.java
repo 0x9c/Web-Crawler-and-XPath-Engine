@@ -4,6 +4,18 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import edu.upenn.cis.storm.CrawlerBolt;
+import edu.upenn.cis.storm.DownloadBolt;
+import edu.upenn.cis.storm.FilterBolt;
+import edu.upenn.cis.storm.URLSpout;
+import edu.upenn.cis.stormlite.Config;
+import edu.upenn.cis.stormlite.LocalCluster;
+import edu.upenn.cis.stormlite.Topology;
+import edu.upenn.cis.stormlite.TopologyBuilder;
+import edu.upenn.cis.stormlite.tuple.Fields;
 import edu.upenn.cis455.storage.DBWrapper;
 
 /**
@@ -14,9 +26,9 @@ import edu.upenn.cis455.storage.DBWrapper;
 public class XPathCrawler {
 	private String startURL;
 	private int maxSize;
-	private URLFrontierQueue urlQueue;
 	private DBWrapper db;
 	private int maxFileNum = Integer.MAX_VALUE;
+	public static URLFrontierQueue urlQueue;
 	
 	public XPathCrawler(){}
 	
@@ -24,7 +36,7 @@ public class XPathCrawler {
 		this.startURL = startURL;
 		this.maxSize = maxSize;
 		this.urlQueue = new URLFrontierQueue(maxSize);
-		this.db = new DBWrapper(dbStorePath);
+		this.db = DBWrapper.getInstance(dbStorePath);
 		PageDownloader.setup(db);
 	}
 	
@@ -77,6 +89,66 @@ public class XPathCrawler {
 		db.close();
 	}
 	
+	public void stormCRAWL() {
+		String URL_SPOUT = "URL_SPOUT";
+	    String CRAWLER_BOLT = "CRAWLER_BOLT";
+	    String DOWNLOAD_BOLT = "DOWNLOAD_BOLT";
+	    String FILTER_BOLT = "FILTER_BOLT";
+	    
+        Config config = new Config();
+      
+        this.urlQueue.pushURL(startURL);
+        
+        URLSpout spout = new URLSpout();
+        CrawlerBolt boltA = new CrawlerBolt();
+        DownloadBolt boltB = new DownloadBolt();
+        FilterBolt boltC = new FilterBolt();
+        
+        TopologyBuilder builder = new TopologyBuilder();
+
+        builder.setSpout(URL_SPOUT, spout, 1);
+        builder.setBolt(CRAWLER_BOLT, boltA, 6).fieldsGrouping(URL_SPOUT, new Fields("URL"));
+        
+        // A single printer bolt (and officially we round-robin)
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 6).shuffleGrouping(CRAWLER_BOLT);
+        builder.setBolt(FILTER_BOLT, boltC, 6).shuffleGrouping(DOWNLOAD_BOLT);
+
+        LocalCluster cluster = new LocalCluster();
+        Topology topo = builder.createTopology();
+
+        ObjectMapper mapper = new ObjectMapper();
+		try {
+			String str = mapper.writeValueAsString(topo);
+			
+			System.out.println("The StormLite topology is:\n" + str);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
+        cluster.submitTopology("crawler", config, 
+        		builder.createTopology());
+        
+        
+        while(urlQueue.URLexecuted < maxFileNum) {
+        	// keep waiting...
+            if(urlQueue.isEmpty()) {
+            	try{
+            		Thread.sleep(30000);      // if queue is empty, wait five more seconds to see whether more links are coming
+            	} catch (InterruptedException e){
+            		e.printStackTrace();
+            	}
+            	System.out.println("Queue size: " + urlQueue.getSize());
+            	if(urlQueue.isEmpty()) break;
+            }
+        }
+        
+        cluster.killTopology("crawler");
+        cluster.shutdown();
+        System.exit(0);
+    }
+	
 	public static void main(String[] args){
 		if(args.length == 0){
 			System.out.println("You need to specify the arguments.");
@@ -89,7 +161,7 @@ public class XPathCrawler {
 			String filepath = args[1];
 			int maxSize = Integer.parseInt(args[2]);
 			XPathCrawler crawler = new XPathCrawler(seedURL, filepath, maxSize);
-			crawler.crawl();
+			crawler.stormCRAWL();
 			crawler.close();
 		}
 		else if(args.length == 4){
@@ -98,7 +170,8 @@ public class XPathCrawler {
 			int maxSize = Integer.parseInt(args[2]);
 			int fileno = Integer.parseInt(args[3]);
 			XPathCrawler crawler = new XPathCrawler(seedURL, filepath, maxSize, fileno);
-			crawler.crawl();
+			//crawler.crawl();
+			crawler.stormCRAWL();
 			crawler.close();
 		}
 		else{

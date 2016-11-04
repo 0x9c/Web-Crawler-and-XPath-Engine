@@ -36,7 +36,7 @@ public class RobotCache {
 			long lastVisited = robot.getLastVisited();
 			long currentVisiting = cal.getTime().getTime();
 			if(currentVisiting - lastVisited >= robot.getCrawlDelay() * 1000 ) {  // crawl delay in seconds actually
-//				robot.setLastVisited();
+				robot.setLastVisited();
 				return true;
 			} else {
 				return false;

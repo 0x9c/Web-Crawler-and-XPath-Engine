@@ -23,7 +23,7 @@ public class LookUp extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String storeLocation = getServletContext().getInitParameter("BDBstore");
-		DBWrapper db = new DBWrapper(storeLocation);
+		DBWrapper db = DBWrapper.getInstance(storeLocation);
 		String url = request.getParameter("url");
 		Page webPage = db.getWebpage(url);
 		PrintWriter out = response.getWriter();

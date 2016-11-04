@@ -25,7 +25,7 @@ public class XCrawlerRegister extends HttpServlet{
 		
 		//Check if Database contains the user and then check if the password matches
 		String storeLocation = getServletContext().getInitParameter("BDBstore");
-		DBWrapper dbStore = new DBWrapper(storeLocation);
+		DBWrapper dbStore = DBWrapper.getInstance(storeLocation);
 		
 		String userName = req.getParameter("username");
 		String password = req.getParameter("password");

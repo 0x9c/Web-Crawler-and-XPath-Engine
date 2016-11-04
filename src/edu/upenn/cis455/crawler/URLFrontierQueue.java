@@ -3,7 +3,11 @@ package edu.upenn.cis455.crawler;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
+import org.apache.log4j.Logger;
+
+import edu.upenn.cis.storm.CrawlerBolt;
 import edu.upenn.cis455.crawler.info.Client;
 
 /**
@@ -12,9 +16,14 @@ import edu.upenn.cis455.crawler.info.Client;
  *
  */
 public class URLFrontierQueue {
-	HashMap<String, Long> visitedURLs = new HashMap<String, Long>();
-	Queue<String> queue = new LinkedList<String>();
-	int maxSize;
+	public HashMap<String, Long> visitedURLs = new HashMap<String, Long>();
+	private Queue<String> queue = new LinkedList<String>();
+//	private Queue<String> queue = new LinkedBlockingQueue<String>();
+	private int maxSize = Integer.MAX_VALUE;
+	public volatile static int URLexecuted = 0;
+	static Logger log = Logger.getLogger(URLFrontierQueue.class);
+	
+	public URLFrontierQueue(){};
 	
 	public URLFrontierQueue(int maxSize){
 		this.maxSize = maxSize;
@@ -23,7 +32,7 @@ public class URLFrontierQueue {
 	public boolean filter(String url){
 		Client client = new Client(url);
 		if(!client.isValid(maxSize)) {
-			System.out.println(url + ": Not Downloading");
+			log.info(url + ": Not Downloading");
 			return false;
 		}
 		long currentLastModified = client.getLast_modified();
@@ -34,7 +43,7 @@ public class URLFrontierQueue {
 				return true;
 			}
 			else{
-				System.out.println(url + ": Not Modified");
+				log.info(url + ": Not Modified");
 				return false;
 			}
 		}
@@ -43,6 +52,10 @@ public class URLFrontierQueue {
 	
 	public boolean isEmpty(){
 		return queue.isEmpty();
+	}
+	
+	public int getSize(){
+		return queue.size();
 	}
 	
 	public String popURL(){

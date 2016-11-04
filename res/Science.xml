@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+   <rss version="2.0">
+   <channel>
+ 	  <title>NYT &gt; Science</title>
+		<link>http://www.nytimes.com/pages/science/index.html?partner=rssnyt</link>
+		<description>Find breaking news, science news &#38; multimedia on biology, space, the environment, health, NASA, weather, drugs, heart disease, cancer, AIDS, mental health and animals.</description>
+		<copyright>Copyright 2006 The New York Times Company</copyright>
+		<language>en-us</language>
+		<lastBuildDate>Fri,  3 Feb 2006 00:05:00 EST</lastBuildDate>
+		<image>
+			<url>http://graphics.nytimes.com/images/section/NytSectionHeader.gif</url>
+			<title>NYT &gt; Science</title>
+			<link>http://www.nytimes.com/pages/science/index.html</link>
+		</image>
+		<item>
+			<title>In Energy Work, One Hand Giveth and the Other Taketh</title>
+			<link>http://www.nytimes.com/2006/02/03/politics/03energy.html?ex=1296622800&#38;en=15c6a2879a4280b8&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>The goals of President Bush and Congress differ in ways that compete for research dollars and are costing some government researchers their jobs.</description>
+			<author>MATTHEW L. WALD</author>
+			<pubDate>Fri, 03 Feb 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/02/03/politics/03energy.html</guid>
+		</item>
+		<item>
+			<title>Icy Ball Is Larger Than Pluto. So, Is It a Planet?</title>
+			<link>http://www.nytimes.com/2006/02/02/science/02planet.html?ex=1296536400&#38;en=711559681851d6af&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>The discovery of 2003 UB313 has intensified a debate over the definition of a planet, which has swirled about Pluto since the late 1990&#39;s.</description>
+			<author>KENNETH CHANG</author>
+			<pubDate>Thu, 02 Feb 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/02/02/science/02planet.html</guid>
+		</item>
+		<item>
+			<title>Behind Bush&#39;s New Stress on Science, Lobbying by Republican Executives</title>
+			<link>http://www.nytimes.com/2006/02/02/business/02research.html?ex=1296536400&#38;en=84fafe2d3b5962db&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>Industry officials eager to see a greater government commitment to research held a series of discussions with administration officials late last year.</description>
+			<author>JOHN MARKOFF</author>
+			<pubDate>Thu, 02 Feb 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/02/02/business/02research.html</guid>
+		</item>
+		<item>
+			<title>Education: More Training Is Seen as Key to Improving Math Levels</title>
+			<link>http://www.nytimes.com/2006/02/02/politics/02education.html?ex=1296536400&#38;en=123e330120e86d66&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>President Bush&#39;s proposal to increase the ranks of advanced teachers in math and science does not envision hiring new teachers.</description>
+			<author>DIANA JEAN SCHEMO</author>
+			<pubDate>Thu, 02 Feb 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/02/02/politics/02education.html</guid>
+		</item>
+		<item>
+			<title>How to Listen for the Sound of Plutonium</title>
+			<link>http://www.nytimes.com/2006/01/31/science/31nuke.html?ex=1296363600&#38;en=ddf9d5fac53159c0&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>Knowing, with precision, when a country is about to gain the ability to build an atomic bomb is a problem Washington has faced for decades.</description>
+			<author>DAVID E. SANGER and WILLIAM J. BROAD</author>
+			<pubDate>Tue, 31 Jan 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/01/31/science/31nuke.html</guid>
+		</item>
+		<item>
+			<title>Essay: A Genius Finds Inspiration in the Music of Another</title>
+			<link>http://www.nytimes.com/2006/01/31/science/31essa.html?ex=1296363600&#38;en=a87043e8733a9758&#38;ei=5088&#38;partner=rssnyt&#38;emc=rss</link>
+			<description>Albert Einstein was fascinated by Wolfgang Amadeus Mozart and sensed an affinity between their creative processes.</description>
+			<author>ARTHUR I. MILLER</author>
+			<pubDate>Tue, 31 Jan 2006 00:00:00 EDT</pubDate>
+			<guid isPermaLink="false">http://www.nytimes.com/2006/01/31/science/31essa.html</guid>
+		</item>
+	</channel>
+</rss>

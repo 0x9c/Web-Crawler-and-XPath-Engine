@@ -66,7 +66,7 @@ public class RoundRobin extends IStreamRouter {
 		
 		inx = (inx + 1) % getBolts().size();
 
-		log.debug("Routing " + tuple.toString() + " to " + bolt.getExecutorId());
+		//log.debug("Routing " + tuple.toString() + " to " + bolt.getExecutorId());
 		
 		return bolt;
 	}

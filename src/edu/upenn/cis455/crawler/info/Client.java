@@ -210,7 +210,7 @@ public class Client {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		String url = "http://crawltest.cis.upenn.edu/marie/tpc";
+		String url = "http://crawltest.cis.upenn.edu/marie/tpc/";
 		Client client = new Client(url);
 		System.out.println("URLInfo:" + client.getPath());
 		InputStream inputStream = client.executeGET(true);

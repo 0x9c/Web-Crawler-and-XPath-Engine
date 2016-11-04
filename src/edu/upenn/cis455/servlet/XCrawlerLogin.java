@@ -24,7 +24,7 @@ public class XCrawlerLogin extends HttpServlet{
 			throws ServletException, IOException {
 		
 		String storeLocation = getServletContext().getInitParameter("BDBstore");
-		DBWrapper dbStore = new DBWrapper(storeLocation);
+		DBWrapper dbStore = DBWrapper.getInstance(storeLocation);
 		HttpSession session = req.getSession(false);
 		if(session != null){
 			String userName = (String)session.getAttribute("username");

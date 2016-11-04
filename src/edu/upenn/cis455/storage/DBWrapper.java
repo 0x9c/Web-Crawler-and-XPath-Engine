@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.TreeMap;
 
 import com.sleepycat.je.DatabaseException;
@@ -28,8 +29,10 @@ public class DBWrapper {
 	private static Environment myEnv;
 	private static EntityStore store;
 	
+	private static DBWrapper DBinstance = null;
+	
 	/* TODO: write object store wrapper for BerkeleyDB */
-	public DBWrapper(String envDirectory){
+	private DBWrapper(String envDirectory){
 		//Initialize myEnv
 		this.envDirectory = envDirectory;
 		try{
@@ -64,6 +67,14 @@ public class DBWrapper {
 		}
 	}
 	
+	public static DBWrapper getInstance(String envDirectory) {
+		if(DBinstance == null) {
+			close();
+			DBinstance = new DBWrapper(envDirectory);
+		}
+		return DBinstance;
+	}
+	
 	public void sync(){
 		if(store != null) store.sync();
 		if(myEnv != null) myEnv.sync();
@@ -85,7 +96,7 @@ public class DBWrapper {
 	}
 	
 	//Close method
-	public void close()
+	public static void close()
 	{
 		
 		//Close store first as recommended
@@ -143,5 +154,51 @@ public class DBWrapper {
 		PrimaryIndex<String, Page> WebpageIndex = store.getPrimaryIndex(String.class, Page.class);
 		return WebpageIndex.get(url);
 	}
-
+	
+	public Channel getChannel(String channelName) {
+		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
+		return channelIndex.get(channelName);
+	}
+	
+	public void putChannel(String channelName, String XPath) {
+		Channel channel = new Channel(channelName, XPath);
+		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
+		channelIndex.put(channel);
+	}
+	
+	
+	
+	public void updateChannel(Channel channel) {
+		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
+		channelIndex.put(channel);
+	}
+	
+	public void updateUser(User user) {
+		PrimaryIndex<String,User> userPIndex = store.getPrimaryIndex(String.class, User.class);
+		userPIndex.put(user);
+	}
+	
+	public List<Channel> getAllChannels() {
+		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
+		EntityCursor<Channel> cursor = channelIndex.entities();
+		List<Channel> res = new ArrayList<>();
+		try{
+			for(Channel c : cursor) res.add(c);
+		} finally {
+			cursor.close();
+		}
+		return res;
+	}
+	
+	public static void main(String[] args){
+		DBWrapper db = DBWrapper.getInstance("./dtianx");
+		db.putChannel("sports", "/rss/channel");
+		db = DBWrapper.getInstance("./dtianx");
+		Channel c = db.getChannel("sports");
+		c.setXPath("channel");
+		db.updateChannel(c);
+		
+		System.out.println(db.getAllChannels().get(0).getXPath());
+		
+	}
 }

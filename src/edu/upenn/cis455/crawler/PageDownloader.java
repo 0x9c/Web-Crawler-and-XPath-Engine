@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
 
+import org.jsoup.nodes.Document;
+
 import edu.upenn.cis455.crawler.info.Client;
 import edu.upenn.cis455.storage.DBWrapper;
 
@@ -37,6 +39,14 @@ public class PageDownloader {
 		catch(IOException e){
 			e.printStackTrace();
 		}
+		RobotCache.setCurrentTime(url);
+		db.sync();
+	}
+	
+	public static void download(String url, Document doc, String type){
+		String body = doc.toString();
+		byte[] content = body.getBytes();
+		db.putPage(url, content, type);	
 		RobotCache.setCurrentTime(url);
 		db.sync();
 	}
