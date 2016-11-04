@@ -148,7 +148,7 @@
 		<exec dir="." executable="sudo">
 	        <arg value="cp"/>
 			<arg value="servlet.war"/>
-	        <arg value="/usr/share/jetty8/webapps/"/>
+	        <arg value="/usr/share/jetty8/webapps/root.war"/>
 	        <redirector inputstring="cis555password"/>        
 		</exec>
 		
