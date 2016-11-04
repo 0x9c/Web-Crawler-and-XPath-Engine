@@ -15,7 +15,6 @@ import edu.upenn.cis.stormlite.tuple.Values;
 import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
-import test.edu.upenn.cis.stormlite.WordSpout;
 
 public class URLSpout implements IRichSpout{
 	static Logger log = Logger.getLogger(URLSpout.class);

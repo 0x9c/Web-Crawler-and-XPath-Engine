@@ -67,7 +67,7 @@ public class DBWrapper {
 		}
 	}
 	
-	public static DBWrapper getInstance(String envDirectory) {
+	public synchronized static DBWrapper getInstance(String envDirectory) {
 		if(DBinstance == null) {
 			close();
 			DBinstance = new DBWrapper(envDirectory);
@@ -75,33 +75,28 @@ public class DBWrapper {
 		return DBinstance;
 	}
 	
-	public void sync(){
+	public void sync() {
 		if(store != null) store.sync();
 		if(myEnv != null) myEnv.sync();
 	}
 	
-	public Environment getEnvironment()
-	{
+	public Environment getEnvironment() {
 		return myEnv;
 	}
 	
-	public EntityStore getStoreUser()
-	{
+	public EntityStore getStoreUser() {
 		return store;
 	}
 	
-	public EntityStore getStoreCrawler()
-	{
+	public EntityStore getStoreCrawler() {
 		return store;
 	}
 	
 	//Close method
-	public static void close()
-	{
+	public synchronized static void close() {
 		
 		//Close store first as recommended
-		if(store!=null)
-		{
+		if(store!=null) {
 			try{
 				store.close();
 			}
@@ -112,8 +107,7 @@ public class DBWrapper {
 		}
 		
 		
-		if(myEnv!=null)
-		{
+		if(myEnv!=null) {
 			try{
 				myEnv.close();
 			}
@@ -122,6 +116,7 @@ public class DBWrapper {
 				e.printStackTrace();
 			}
 		}
+		DBinstance = null;
 	}
 	
 	 
@@ -165,8 +160,6 @@ public class DBWrapper {
 		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
 		channelIndex.put(channel);
 	}
-	
-	
 	
 	public void updateChannel(Channel channel) {
 		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);

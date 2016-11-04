@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.log4j.BasicConfigurator;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -150,6 +152,7 @@ public class XPathCrawler {
     }
 	
 	public static void main(String[] args){
+		BasicConfigurator.configure();
 		if(args.length == 0){
 			System.out.println("You need to specify the arguments.");
 			System.out.println("name: Tianxiang Dong");

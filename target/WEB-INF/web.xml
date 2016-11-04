@@ -46,6 +46,11 @@
      <servlet-class>edu.upenn.cis455.servlet.LookUp</servlet-class> 
    </servlet>
    
+   <servlet>
+     <servlet-name>xcrawlerCreate</servlet-name>
+     <servlet-class>edu.upenn.cis455.servlet.XCrawlerCreate</servlet-class> 
+   </servlet>
+   
    <servlet-mapping>
      <servlet-name>xpath</servlet-name>
      <url-pattern>/xpath</url-pattern>
@@ -84,6 +89,11 @@
    <servlet-mapping>
      <servlet-name>register</servlet-name>
      <url-pattern>/register.jsp</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+     <servlet-name>xcrawlerCreate</servlet-name>
+     <url-pattern>/create/*</url-pattern>
    </servlet-mapping>
    
    <!-- add any additional servlets and servlet mappings here -->

@@ -23,7 +23,6 @@ import edu.upenn.cis455.crawler.Processor;
 import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
-import test.edu.upenn.cis.stormlite.WordCounter;
 
 public class CrawlerBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(CrawlerBolt.class);
@@ -72,7 +71,7 @@ public class CrawlerBolt implements IRichBolt{
 	public void execute(Tuple input) {
 		String curURL = input.getStringByField("URL");
 		try {
-			Response rep = Jsoup.connect(curURL).execute();
+			Response rep = Jsoup.connect(curURL).header("User-Agent", "cis455crawler").execute();
 			Document doc = rep.parse();
 			String contentType = rep.contentType();
 			collector.emit(new Values<Object>(curURL, doc, contentType));

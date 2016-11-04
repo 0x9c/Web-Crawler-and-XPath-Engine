@@ -29,7 +29,7 @@ public class User {
 	{
 		this.userName = userName;
 		this.password = password;
-		this.setSubscribe(new ArrayList<>());
+		this.subscribe = new ArrayList<>();
 	}
 	
 	public void setUser(String userName)

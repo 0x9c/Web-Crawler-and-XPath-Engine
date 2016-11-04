@@ -18,7 +18,7 @@ public class Channel {
 	public Channel(String channelName, String XPath){
 		this.channelName = channelName;
 		this.setXPath(XPath);
-		this.setMatchedURL(new HashSet<>());
+		this.matchedURL = new HashSet<>();
 	}
 	
 	public String getName() {
