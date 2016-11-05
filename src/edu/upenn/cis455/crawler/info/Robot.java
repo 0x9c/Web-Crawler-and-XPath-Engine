@@ -181,7 +181,8 @@ public class Robot {
 	 * @return
 	 */
 	public int getCrawlDelay(){
-		return crawlDelay;
+		return 0;
+		//return crawlDelay;
 	}
 	
 	public static void main(String[] args){

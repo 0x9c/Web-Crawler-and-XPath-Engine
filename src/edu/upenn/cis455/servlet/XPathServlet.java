@@ -86,6 +86,15 @@ public class XPathServlet extends HttpServlet {
 			out.println("</tr>");
 		}
 		out.println("</table>");
+		out.println("<br>");
+		out.println("<form action=\"/user\" method=\"GET\">");
+		out.println("<input type=\"submit\" value=\"My Profile\">");
+		out.println("</form>");
+		
+		out.println("<form action=\"/logout\" method=\"GET\">");
+		out.println("<input type=\"submit\" value=\"Logout\">");
+		out.println("</form>");
+		
 		out.println("</center>");
 		out.println("</body>");
 		out.println("</HTML>");

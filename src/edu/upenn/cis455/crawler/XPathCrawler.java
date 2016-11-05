@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.upenn.cis.storm.CrawlerBolt;
 import edu.upenn.cis.storm.DownloadBolt;
 import edu.upenn.cis.storm.FilterBolt;
+import edu.upenn.cis.storm.MatchBolt;
 import edu.upenn.cis.storm.URLSpout;
 import edu.upenn.cis.stormlite.Config;
 import edu.upenn.cis.stormlite.LocalCluster;
@@ -31,6 +32,7 @@ public class XPathCrawler {
 	private DBWrapper db;
 	private int maxFileNum = Integer.MAX_VALUE;
 	public static URLFrontierQueue urlQueue;
+	public static String dbPath;
 	
 	public XPathCrawler(){}
 	
@@ -95,6 +97,7 @@ public class XPathCrawler {
 		String URL_SPOUT = "URL_SPOUT";
 	    String CRAWLER_BOLT = "CRAWLER_BOLT";
 	    String DOWNLOAD_BOLT = "DOWNLOAD_BOLT";
+	    String MATCH_BOLT = "MATCH_BOLT";
 	    String FILTER_BOLT = "FILTER_BOLT";
 	    
         Config config = new Config();
@@ -104,16 +107,17 @@ public class XPathCrawler {
         URLSpout spout = new URLSpout();
         CrawlerBolt boltA = new CrawlerBolt();
         DownloadBolt boltB = new DownloadBolt();
-        FilterBolt boltC = new FilterBolt();
+        MatchBolt boltC = new MatchBolt();
+        FilterBolt boltD = new FilterBolt();
         
         TopologyBuilder builder = new TopologyBuilder();
 
         builder.setSpout(URL_SPOUT, spout, 1);
         builder.setBolt(CRAWLER_BOLT, boltA, 6).fieldsGrouping(URL_SPOUT, new Fields("URL"));
         
-        // A single printer bolt (and officially we round-robin)
-        builder.setBolt(DOWNLOAD_BOLT, boltB, 6).shuffleGrouping(CRAWLER_BOLT);
-        builder.setBolt(FILTER_BOLT, boltC, 6).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 4).shuffleGrouping(CRAWLER_BOLT);
+        builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 4).shuffleGrouping(MATCH_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();
@@ -163,6 +167,7 @@ public class XPathCrawler {
 			String seedURL = args[0];
 			String filepath = args[1];
 			int maxSize = Integer.parseInt(args[2]);
+			XPathCrawler.dbPath = filepath;
 			XPathCrawler crawler = new XPathCrawler(seedURL, filepath, maxSize);
 			crawler.stormCRAWL();
 			crawler.close();
@@ -172,6 +177,7 @@ public class XPathCrawler {
 			String filepath = args[1];
 			int maxSize = Integer.parseInt(args[2]);
 			int fileno = Integer.parseInt(args[3]);
+			XPathCrawler.dbPath = filepath;
 			XPathCrawler crawler = new XPathCrawler(seedURL, filepath, maxSize, fileno);
 			//crawler.crawl();
 			crawler.stormCRAWL();

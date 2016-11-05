@@ -15,6 +15,11 @@ import edu.upenn.cis455.storage.Channel;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet used to create new channels
+ * @author cis555
+ *
+ */
 public class XCrawlerCreate extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -40,7 +45,7 @@ public class XCrawlerCreate extends HttpServlet{
 		System.out.println("channelName: " + channelName);
 		System.out.println("xpath: " + xpath);
 		
-		Channel newChannel = new Channel(channelName, xpath);
+		Channel newChannel = new Channel(channelName, xpath, user.getUserName());
 		user.addSubscribe(channelName);
 		dbStore.updateChannel(newChannel);
 		dbStore.updateUser(user);

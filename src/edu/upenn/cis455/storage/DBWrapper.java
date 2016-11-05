@@ -155,8 +155,8 @@ public class DBWrapper {
 		return channelIndex.get(channelName);
 	}
 	
-	public void putChannel(String channelName, String XPath) {
-		Channel channel = new Channel(channelName, XPath);
+	public void putChannel(String channelName, String XPath, String username) {
+		Channel channel = new Channel(channelName, XPath, username);
 		PrimaryIndex<String, Channel> channelIndex = store.getPrimaryIndex(String.class, Channel.class);
 		channelIndex.put(channel);
 	}
@@ -183,15 +183,15 @@ public class DBWrapper {
 		return res;
 	}
 	
-	public static void main(String[] args){
-		DBWrapper db = DBWrapper.getInstance("./dtianx");
-		db.putChannel("sports", "/rss/channel");
-		db = DBWrapper.getInstance("./dtianx");
-		Channel c = db.getChannel("sports");
-		c.setXPath("channel");
-		db.updateChannel(c);
-		
-		System.out.println(db.getAllChannels().get(0).getXPath());
-		
-	}
+//	public static void main(String[] args){
+//		DBWrapper db = DBWrapper.getInstance("./dtianx");
+//		db.putChannel("sports", "/rss/channel", "dtx");
+//		db = DBWrapper.getInstance("./dtianx");
+//		Channel c = db.getChannel("sports");
+//		c.setXPath("channel");
+//		db.updateChannel(c);
+//		
+//		System.out.println(db.getAllChannels().get(0).getXPath());
+//		
+//	}
 }

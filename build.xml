@@ -138,7 +138,7 @@
 			<classpath>
 				<path refid="classpath"/>
 			</classpath>
-			<arg value="http://crawltest.cis.upenn.edu"/>
+			<arg value="https://dbappserv.cis.upenn.edu/crawltest.html"/>
 			<arg value="/tmp/database/dtianx"/>
 			<arg value="20"/>
 		</java>

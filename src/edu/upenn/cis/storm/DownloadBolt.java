@@ -27,7 +27,7 @@ import edu.upenn.cis455.crawler.XPathCrawler;
 public class DownloadBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(DownloadBolt.class);
 	
-	Fields schema = new Fields("URLStream");
+	Fields schema = new Fields("URL", "type","document", "URLStream");
 	
 	String executorId = UUID.randomUUID().toString();
 	
@@ -90,7 +90,7 @@ public class DownloadBolt implements IRichBolt{
 			linklist.add(link.attr("abs:href"));
 		}
 		
-		collector.emit(new Values<Object>(linklist));
+		collector.emit(new Values<Object>(url, type, doc, linklist));
 	}
 	
     /**
