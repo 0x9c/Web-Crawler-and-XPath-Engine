@@ -18,7 +18,13 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.Channel;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.Page;
+import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet used to show matched XML in a specific channel
+ * @author cis555
+ *
+ */
 public class XCrawlerShow extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
@@ -33,6 +39,14 @@ public class XCrawlerShow extends HttpServlet{
 		String channelName = req.getParameter("channel");
 		String storeLocation = getServletContext().getInitParameter("BDBstore");
 		DBWrapper dbStore = DBWrapper.getInstance(storeLocation);
+		String username = (String)session.getAttribute("username");
+		User user = dbStore.getUser(username);
+		
+		if(!user.getSubscribe().contains(channelName)) {
+			res.sendRedirect("/");
+			return;
+		}
+		
 		Channel channel = dbStore.getChannel(channelName);
 		Set<String> matchedURL = (Set<String>) channel.getMatchedURL();
 		List<Page> matchPage = new ArrayList<>();

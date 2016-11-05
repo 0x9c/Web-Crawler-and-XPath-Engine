@@ -24,6 +24,11 @@ import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
 
+/**
+ * Bolt Component used to connect URL and get the document
+ * @author cis555
+ *
+ */
 public class CrawlerBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(CrawlerBolt.class);
 	
@@ -39,7 +44,6 @@ public class CrawlerBolt implements IRichBolt{
     	log.debug("Starting CrawlerBolt");
     	this.urlQueue = XPathCrawler.urlQueue;
     }
-    
     
     /**
      * Used for debug purposes, shows our exeuctor/operator's unique ID

@@ -21,7 +21,7 @@ public class User {
 	@PrimaryKey
 	private String userName;
 	private String password;
-	private List<String> subscribe;
+	private List<String> subscribe = new ArrayList<>();
 	
 	public User(){}
 	
@@ -29,7 +29,6 @@ public class User {
 	{
 		this.userName = userName;
 		this.password = password;
-		this.subscribe = new ArrayList<>();
 	}
 	
 	public void setUser(String userName)

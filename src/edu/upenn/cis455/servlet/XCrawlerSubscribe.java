@@ -11,6 +11,11 @@ import javax.servlet.http.HttpSession;
 import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.storage.User;
 
+/**
+ * Servlet used to subscribe channels to user
+ * @author cis555
+ *
+ */
 public class XCrawlerSubscribe extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)

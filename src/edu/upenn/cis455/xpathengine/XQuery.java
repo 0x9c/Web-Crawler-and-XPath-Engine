@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Object to represent single xpath, which includes all path nodes in this query
+ * @author cis555
+ *
+ */
 public class XQuery {
 	public String query;
 	Node head;

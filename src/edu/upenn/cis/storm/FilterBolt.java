@@ -22,6 +22,11 @@ import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
 
+/**
+ * Bolt Component used to filter coming extracted urls
+ * @author cis555
+ *
+ */
 public class FilterBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(FilterBolt.class);
 	

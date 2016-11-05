@@ -16,6 +16,11 @@ import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
 
+/**
+ * Main spout that checks delay and dequeue URLs from URLFrontier.
+ * @author cis555
+ *
+ */
 public class URLSpout implements IRichSpout{
 	static Logger log = Logger.getLogger(URLSpout.class);
 	URLFrontierQueue urlQueue;

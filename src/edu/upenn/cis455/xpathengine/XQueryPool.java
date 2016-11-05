@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Query Pool which includes xpaths from all channels.
+ * @author cis555
+ *
+ */
 public class XQueryPool {
 	String[] queries;
 	XQuery[] querypool;

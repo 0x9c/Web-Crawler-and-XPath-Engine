@@ -6,6 +6,11 @@ import java.util.Set;
 import com.sleepycat.persist.model.Entity;
 import com.sleepycat.persist.model.PrimaryKey;
 
+/**
+ * Entity class used to store Channel info into database
+ * @author cis555
+ *
+ */
 @Entity
 public class Channel {
 	@PrimaryKey

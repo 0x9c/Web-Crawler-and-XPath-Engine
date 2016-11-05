@@ -34,6 +34,11 @@ import edu.upenn.cis455.storage.DBWrapper;
 import edu.upenn.cis455.xpathengine.XPathEngineFactory;
 import edu.upenn.cis455.xpathengine.XPathEngineImpl;
 
+/**
+ * Bolt component used to match given document with xpaths
+ * @author cis555
+ *
+ */
 public class MatchBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(MatchBolt.class);
 	

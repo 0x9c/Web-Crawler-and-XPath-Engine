@@ -24,6 +24,11 @@ import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
 
+/**
+ * Bolt Component used to store document into database
+ * @author cis555
+ *
+ */
 public class DownloadBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(DownloadBolt.class);
 	

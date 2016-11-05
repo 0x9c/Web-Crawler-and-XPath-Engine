@@ -7,13 +7,15 @@ Entire assignment
 
 Did you complete any extra-credit tasks? If so, which ones?
   (list extra-credit tasks)
-Not yet
+Yes.
+5.3 Channel Subscriptions
 
 Any special instructions for building and running your solution?
   (include detailed instructions, or write 'None')
 1. The database path for crawling is set to "/tmp/database/dtianx";
 2. Just followed the instruction in Piazza to set "ant servlet" path into "/usr/share/jetty/webapps/", but basically I am only using jetty8 in my VM. Don't know if it's all good in jetty. If something goes wrong, please try jetty8 instead. Thank you and sorry for inconvenience.
-3. Under jetty8 server, the URL to servlet should be added /servlet to make it work. For instance, the home page should be localhost:8080/servlet/ or localhost:8080/servlet/login.
+3. The create pattern is a little different from Homework introduction, in which requires "/create/{name}?xpath={xpath-pattern}". I just added both channel name and xpath as query strings like "/create?ChannelName={name}&XPath={xpath-pattern}". Sorry for the inconvience but it's kind of make sense. Since /create is not a real page for users. The reason for doing this is I am using form in HTML, which generates standard redirect url like this. Thank you.
+4. Seperate Tests are in seperate packages. Not all of them are in "RunAllTest". Sorry for the inconvenience.
 
 Did you personally write _all_ the code you are submitting
 (other than code from the course web page)?
