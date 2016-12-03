@@ -2,12 +2,13 @@ package edu.upenn.cis455.crawler;
 
 import java.util.Calendar;
 import java.util.Hashtable;
+import java.util.concurrent.ConcurrentHashMap;
 
 import edu.upenn.cis455.crawler.info.Robot;
 import edu.upenn.cis455.crawler.info.URLInfo;
 
 public class RobotCache {
-	public static Hashtable<String, Robot> robots = new Hashtable<>();
+	public static ConcurrentHashMap<String, Robot> robots = new ConcurrentHashMap<>();
 	
 	public static void addRobot(String url) {
 		URLInfo urlinfo = new URLInfo(url);

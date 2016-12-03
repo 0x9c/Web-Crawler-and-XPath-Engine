@@ -81,6 +81,7 @@ public class DownloadBolt implements IRichBolt{
 			urlQueue.visitedURLs.put(url, RobotCache.getLastVisited(url));
 			urlQueue.URLexecuted += 1;
 			log.info(executorId + "----> " + url + ": Downloading");
+			log.info("size: " + doc.toString().length());
 			log.info(urlQueue.URLexecuted);
 		}
 		

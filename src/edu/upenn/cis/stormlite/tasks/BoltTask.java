@@ -17,6 +17,13 @@
  */
 package edu.upenn.cis.stormlite.tasks;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.Arrays;
+
+import org.apache.log4j.Logger;
+
+import edu.upenn.cis.stormlite.LocalCluster;
 import edu.upenn.cis.stormlite.bolt.IRichBolt;
 import edu.upenn.cis.stormlite.tuple.Tuple;
 
@@ -28,7 +35,7 @@ import edu.upenn.cis.stormlite.tuple.Tuple;
  *
  */
 public class BoltTask implements Runnable {
-	
+	static Logger log = Logger.getLogger(BoltTask.class);
 	IRichBolt bolt;
 	Tuple tuple;
 	
@@ -39,7 +46,14 @@ public class BoltTask implements Runnable {
 
 	@Override
 	public void run() {
-		bolt.execute(tuple);
+		try {
+			bolt.execute(tuple);
+		} catch (Exception e) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.error(sw.toString()); // stack trace as a string
+		}
 	}
 
 }

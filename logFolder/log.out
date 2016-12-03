@@ -1,0 +1,119 @@
+INFO  DownloadBolt:83 -[pool-1-thread-5] f3f74048-3b56-4a7d-8d92-9ff4b23310da----> https://www.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-5] size: 107810
+INFO  DownloadBolt:85 -[pool-1-thread-5] 1
+INFO  FilterBolt:88 -[pool-1-thread-5] https://es-la.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://fr-fr.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-1] 0c69e3fb-1012-4e71-88f0-90f12fc763db----> https://es-la.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-1] size: 107182
+INFO  DownloadBolt:85 -[pool-1-thread-1] 2
+INFO  FilterBolt:88 -[pool-1-thread-5] https://zh-cn.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://ar-ar.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://pt-br.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-1] 4074cc8d-4a6a-41ce-8200-2e995e79386f----> https://fr-fr.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-1] size: 104610
+INFO  DownloadBolt:85 -[pool-1-thread-1] 3
+INFO  DownloadBolt:83 -[pool-1-thread-2] 271009d1-7418-4b21-9efa-6464ff3cb7f0----> https://zh-cn.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 105192
+INFO  DownloadBolt:85 -[pool-1-thread-2] 4
+INFO  FilterBolt:88 -[pool-1-thread-5] https://it-it.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://ko-kr.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-1] d65205af-93c6-4d53-a637-7147fa32800c----> https://ar-ar.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-1] size: 110889
+INFO  DownloadBolt:85 -[pool-1-thread-1] 5
+INFO  DownloadBolt:83 -[pool-1-thread-2] 7cfda1df-e5ac-482b-aefb-59ac16b98624----> https://pt-br.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 106666
+INFO  DownloadBolt:85 -[pool-1-thread-2] 6
+INFO  FilterBolt:88 -[pool-1-thread-5] https://de-de.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://hi-in.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://ja-jp.facebook.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNazJf2PZCJswOo_MhyVcDlfoFRP-W0JBSBWcx7IKS6er28mS7xdJJkLqTjpupzGhP6wv0wvNSfcJjH6Nww3SJe56wAYa2WprcnG6vibcir8pMaygYySumLRlCo-U8&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://developers.facebook.com/?ref=pf --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://ar-ar.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-1] https://zh-cn.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATMKvF5kN5wTIqdTtSVTieaAJzsokpQ7NAnSfmU6O4FRFkPW-odvyMvZ6rl8tM6X21xtjcotyRYhaQ_tgOgF0p3ZgF7RgDzpCxcU-5o5rlGp-_mFLQF6F08qRitAldw&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATOzyJOL9N_mogxNlPiD5k_HBUoG5tsVRzRHW3Shp62wUQnG5jA3KejK6z5aZa5CduNpVQ-8amLPT059pBkQyQ_ZXQ01BypjBEJvGc9h6IFME2EggsZfXS8AooebN3s&s=1 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-2] f3f74048-3b56-4a7d-8d92-9ff4b23310da----> https://it-it.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 105967
+INFO  DownloadBolt:85 -[pool-1-thread-2] 7
+INFO  FilterBolt:88 -[pool-1-thread-3] https://fr-fr.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-2] 0c69e3fb-1012-4e71-88f0-90f12fc763db----> https://ko-kr.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 106682
+INFO  DownloadBolt:85 -[pool-1-thread-2] 8
+INFO  FilterBolt:88 -[pool-1-thread-4] https://es-la.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-4] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATOk1-4r7enVFS__tZmdBzxHAyyohcqFVGggZwFMaEhyLoXFg_nMg4pyBl3vd3_WdOd5qaFBvxFYTkaFc5jCdYxA5QE7s-tBj0Ur22D-AsGXndyBa3JjRq0-5DsdJZA&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-3] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNMnqpDOrUF7isbn-V7Px3D9TBgAGPqkq7abC08EjWg7LkUFdVG-avQEclEEtSd-B-b_ZL9gKUyggMAvXEloRFlckHuuxtAFfSRldwmGNsLf791-v4tl4kkrZhHQTs&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://pt-br.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] 4074cc8d-4a6a-41ce-8200-2e995e79386f----> https://de-de.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 106371
+INFO  DownloadBolt:85 -[pool-1-thread-4] 9
+INFO  FilterBolt:88 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNJWeF-9npQrEVz9Nu62L_rrMX4NOSRN4rhMFocEXXVjWehxnQ5nm-C6BC7HKhezbfacJtdVdFBhpTzWgnB2MCaSdiUsE_oMmIPqSmcyLbSlu90ZlfDduUO25V9lwk&s=1 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] 271009d1-7418-4b21-9efa-6464ff3cb7f0----> https://hi-in.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 108603
+INFO  DownloadBolt:85 -[pool-1-thread-4] 10
+INFO  DownloadBolt:83 -[pool-1-thread-4] d65205af-93c6-4d53-a637-7147fa32800c----> https://ja-jp.facebook.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 107448
+INFO  DownloadBolt:85 -[pool-1-thread-4] 11
+INFO  FilterBolt:88 -[pool-1-thread-2] https://ko-kr.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNjzBIvUMjB9dFIHIWe1kOkx8J_UMOziI878DgASja792uTfmpRlyRvmcVeuouEVpZaA1JJ02MKW1pwg36wmS9zZ1vhzkxbOHND3M5cPagwaGtdlnK1KoPuQnOhGm0&s=1 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-2] 7cfda1df-e5ac-482b-aefb-59ac16b98624----> https://messenger.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 127818
+INFO  DownloadBolt:85 -[pool-1-thread-2] 12
+INFO  FilterBolt:88 -[pool-1-thread-5] https://hi-in.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATM-y5-3J86stqMuOSzd-dYoThHP1Fx-_3N71kKmzgGZ3ddikvdlpsplDa0TqjBabwILwTr_4rcr4DwTFwBJNJ4oeuMWfn-Ltm7lcmLlOWsgoJ9IvBgM8vOVRYv2-q4&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ATNaXBJtvIqOTB8T7YuyOKLzl2fT1LOH6-e_XjQeCzRi_VImtTYwtClhT_n3XFLP4S4HBX00dI3rs7afb_IjLdHvbi4HZCLRlI81bSZ_8sJ8xGic8QdY5k-1j6l2B30&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=ATMQSmJjd7e3TKWoLNUxeHeQWre91oaDD2F4ctr7nfK3Hpra0Mzc2YikRp5d9RkPui3p02cbxDirtPmnoLCPKVeXzM-U4e4d_nn7Z-9m4potsn8JsSfTLQCFQYHH7ew&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-2] f3f74048-3b56-4a7d-8d92-9ff4b23310da----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNazJf2PZCJswOo_MhyVcDlfoFRP-W0JBSBWcx7IKS6er28mS7xdJJkLqTjpupzGhP6wv0wvNSfcJjH6Nww3SJe56wAYa2WprcnG6vibcir8pMaygYySumLRlCo-U8&s=1: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 306
+INFO  DownloadBolt:85 -[pool-1-thread-2] 13
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/features --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-2] 0c69e3fb-1012-4e71-88f0-90f12fc763db----> https://developers.facebook.com/?ref=pf: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-2] size: 115498
+INFO  DownloadBolt:85 -[pool-1-thread-2] 14
+INFO  FilterBolt:88 -[pool-1-thread-4] https://ja-jp.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-1] https://it-it.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-4] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATNjl2XtAvvniX38GhN1bIaDkgkmnTj08IhsMNWOnoJOZxdm0Z93yamcA_DxvluLV-tbHtfbvz1Pu3eRDGtCWtU2ecUubLNFmo8K_2UYZI8jG_QtEr8A5Ume5BkKYyY&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://messengerplatform.fb.com --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products/login --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATPKVPN-C--FvdJIr1XF76GlUMG4FYKldfT06VwHVb-GStjb5bIvZLNQsuq4LeloHEo6TaB2wxs1P6MlyHGX2vGFdmO488kg4OAGvYWaZNv0KzshDgpaR0Tf4an3-sU&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://market.android.com/details?id=com.facebook.orca --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products/sharing/overview --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products/analytics --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] 4074cc8d-4a6a-41ce-8200-2e995e79386f----> https://ar-ar.messenger.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 130474
+INFO  DownloadBolt:85 -[pool-1-thread-4] 15
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products/app-monetization/audience-network/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-1] 271009d1-7418-4b21-9efa-6464ff3cb7f0----> https://zh-cn.messenger.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-1] size: 128197
+INFO  DownloadBolt:85 -[pool-1-thread-1] 16
+INFO  FilterBolt:88 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ATNJYo47JQxeNofJl0gxgWvCJLB2lxnVg_93cc3gk-T_8QxRbX2HoKpIgtcBsh9HWjfHsPDuEN5IvZJEg0UHQZscb6ITkMhLgK4GB5MDSEFIbj35B17nmrtwZK_1T7g&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products/messenger/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/products --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/docs/android/getting-started --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-3] https://de-de.messenger.com/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-3] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATO6_bbmCO8I97N4KdQIgWxnCx1OKYVrIabqOHUNIxMW0wH9oHeyPix0OWemAkLwPkvP8wHolTZGfXKTguGZjcV-1Ys0UufAEqgyJy0ByAJwMydHlfOH-Q5u2WtamAE&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=ATPmbgrj12J3wGl3Q586-QSd4XSqpgr1dDkGAtxrzB18IHdP5E3K46DnTJcQK94xLqFH1b9GSWbMk5lb1uhE9beZbQZIA4uJ0z-d_vyq4Q0Jgxgb2PMgSiG3Z5h5A7U&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] d65205af-93c6-4d53-a637-7147fa32800c----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATMKvF5kN5wTIqdTtSVTieaAJzsokpQ7NAnSfmU6O4FRFkPW-odvyMvZ6rl8tM6X21xtjcotyRYhaQ_tgOgF0p3ZgF7RgDzpCxcU-5o5rlGp-_mFLQF6F08qRitAldw&s=1: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 306
+INFO  DownloadBolt:85 -[pool-1-thread-4] 17
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/docs/ios/getting-started --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-3] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ATOEoMxcaO-8N1fB8dfUAsjwonNk-NYrtudYM4r3cUUKe5WUBMkW_uOufiP6q8rMhQ-S6qwA0GISiybcLy-F1Tz51YjrhqvPV1xlLsSGtFMY17dLddGEjImqQfFOA8w&s=1 --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-3] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=ATONcmMFUmwXr-zoKDyzh3h9pLJtKM0V1ITiUvPKHpOeiV1kstjQKLZ1-g9IDhKcAyjvHq-LNL4ObImuhza4zi9-fK6DVGriRJztfJsz-slGskqS-gv930MTD8rXDYA&s=1 --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] 7cfda1df-e5ac-482b-aefb-59ac16b98624----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ATOzyJOL9N_mogxNlPiD5k_HBUoG5tsVRzRHW3Shp62wUQnG5jA3KejK6z5aZa5CduNpVQ-8amLPT059pBkQyQ_ZXQ01BypjBEJvGc9h6IFME2EggsZfXS8AooebN3s&s=1: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 306
+INFO  DownloadBolt:85 -[pool-1-thread-4] 18
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/features#hdcalls --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/features#texts --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/docs/tvos --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/docs/javascript --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/features#photos --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-2] https://developers.facebook.com/blog/post/2016/11/30/instant-games-closed-beta/ --> pushed into queue
+INFO  FilterBolt:88 -[pool-1-thread-5] https://www.messenger.com/features#stickers --> pushed into queue
+INFO  DownloadBolt:83 -[pool-1-thread-4] f3f74048-3b56-4a7d-8d92-9ff4b23310da----> https://fr-fr.messenger.com/: Downloading
+INFO  DownloadBolt:84 -[pool-1-thread-4] size: 127737
+INFO  DownloadBolt:85 -[pool-1-thread-4] 19

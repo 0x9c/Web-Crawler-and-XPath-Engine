@@ -146,13 +146,13 @@ public class Robot {
 			if(disallowpath.endsWith("/")){
 				//disallowpath = disallowpath.substring(0, disallowpath.length() - 1);
 				if(!path.equals(disallowpath) && path.contains(disallowpath)){
-					log.info(url + ": Restricted. Not downloading");
+					log.debug(url + ": Restricted. Not downloading");
 					return false;
 				}
 			}
 			else{
 				if(path.equals(disallowpath)) {
-					log.info(url + ": Restricted. Not downloading");
+					log.debug(url + ": Restricted. Not downloading");
 					return false;
 				}
 			}

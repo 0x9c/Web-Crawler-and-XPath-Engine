@@ -32,7 +32,7 @@ public class URLFrontierQueue {
 	public boolean filter(String url){
 		Client client = new Client(url);
 		if(!client.isValid(maxSize)) {
-			log.info(url + ": Not Downloading");
+			log.debug(url + ": Not Downloading");
 			return false;
 		}
 		long currentLastModified = client.getLast_modified();
@@ -43,7 +43,7 @@ public class URLFrontierQueue {
 				return true;
 			}
 			else{
-				log.info(url + ": Not Modified");
+				log.debug(url + ": Not Modified");
 				return false;
 			}
 		}

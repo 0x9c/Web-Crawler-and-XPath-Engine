@@ -192,11 +192,10 @@ public class DBWrapper {
 	
 	public static void main(String[] args){
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
-		db.putChannel("sports", "/rss/channel");
-		db = DBWrapper.getInstance("./dtianx");
-		Channel c = db.getChannel("sports");
-		c.setXPath("channel");
-		db.updateChannel(c);
+//		db.putChannel("sports", "/rss/channel");
+//		Channel c = db.getChannel("sports");
+//		c.setXPath("channel");
+//		db.updateChannel(c);
 		
 		System.out.println(db.getAllChannels().get(0).getXPath());
 		
