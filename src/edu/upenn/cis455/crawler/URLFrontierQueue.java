@@ -63,8 +63,8 @@ public class URLFrontierQueue {
 		return queue.poll();
 	}
 	
-	public synchronized void addExecutedSize(){
-		URLexecuted++;
+	public synchronized int addExecutedSize(){
+		return URLexecuted++;
 	}
 	
 	public synchronized int getExecutedSize(){

@@ -66,18 +66,23 @@ public class FilterBolt implements IRichBolt{
 	@Override
 	public void cleanup() {}
 	
+	private String removeHashTagInURL(String link) {
+		String[] split = link.split("#");
+		return split[0];
+	}
+	
     /**
      * Process a tuple received from the stream, incrementing our
      * counter and outputting a result
      */
 	@Override
 	public void execute(Tuple input) {
-		List<String> links = (List<String>) input.getObjectByField("URLStream");
-		Queue<String> linksToCheck = new LinkedList<>();
-		for(String link : links) linksToCheck.offer(link);
+		Queue<String> linksToCheck = (Queue<String>) input.getObjectByField("URLStream");
 		
 		while(!linksToCheck.isEmpty()) {
 			String link = linksToCheck.poll();
+			link = removeHashTagInURL(link);
+			
 			if(!RobotCache.checkDelay(link)){
 				linksToCheck.offer(link);
 				continue;

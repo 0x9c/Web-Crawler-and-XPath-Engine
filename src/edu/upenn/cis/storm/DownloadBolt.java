@@ -1,8 +1,10 @@
 package edu.upenn.cis.storm;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.UUID;
 
 import org.apache.log4j.Logger;
@@ -84,13 +86,13 @@ public class DownloadBolt implements IRichBolt{
 		
 //		synchronized(urlQueue) {
 			urlQueue.visitedURLs.put(url, RobotCache.getLastVisited(url));
-			urlQueue.addExecutedSize();
+			int executedSize = urlQueue.addExecutedSize();
 			log.info("----> " + url + ": Downloading");
 			log.info("size: " + doc.toString().length());
-			log.info(urlQueue.getExecutedSize());
+			log.info(executedSize);
 //		}
 		
-		List<String> linklist = new ArrayList<String>();
+		Queue<String> linklist = new LinkedList<String>();
 		Elements links = doc.select("a[href]");
 		for (Element link : links) {
 			linklist.add(link.attr("abs:href"));
