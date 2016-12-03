@@ -6,19 +6,27 @@ import java.util.Set;
 import com.sleepycat.persist.model.Entity;
 import com.sleepycat.persist.model.PrimaryKey;
 
+/**
+ * Entity class used to store Channel info into database
+ * @author cis555
+ *
+ */
 @Entity
 public class Channel {
 	@PrimaryKey
 	private String channelName;
+	
 	private String XPath;
+	private String createdUser;
 	private Set<String> matchedURL;
 	
 	public Channel(){}
 	
-	public Channel(String channelName, String XPath){
+	public Channel(String channelName, String XPath, String createdUser){
 		this.channelName = channelName;
 		this.setXPath(XPath);
-		this.setMatchedURL(new HashSet<>());
+		this.setCreatedUser(createdUser);
+		this.matchedURL = new HashSet<>();
 	}
 	
 	public String getName() {
@@ -41,7 +49,19 @@ public class Channel {
 		return matchedURL;
 	}
 
+	public void addMatchedURL(String url) {
+		this.matchedURL.add(url);
+	}
+	
 	public void setMatchedURL(Set<String> matchedURL) {
 		this.matchedURL = matchedURL;
+	}
+
+	public String getCreatedUser() {
+		return createdUser;
+	}
+
+	public void setCreatedUser(String createdUser) {
+		this.createdUser = createdUser;
 	}
 }

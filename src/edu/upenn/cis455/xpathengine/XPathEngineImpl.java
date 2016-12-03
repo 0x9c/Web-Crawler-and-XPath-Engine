@@ -14,6 +14,11 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * XPathEngine Implementation
+ * @author cis555
+ *
+ */
 public class XPathEngineImpl implements XPathEngine {
 	  XQueryPool queryPool;
 	  SAXParserFactory factory;

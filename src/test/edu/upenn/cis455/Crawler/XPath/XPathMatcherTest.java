@@ -1,4 +1,4 @@
-package test.edu.upenn.cis455.XPath;
+package test.edu.upenn.cis455.Crawler.XPath;
 
 
 import java.io.FileInputStream;
@@ -35,7 +35,7 @@ public class XPathMatcherTest extends TestCase{
 	public void test() {
 		XPathEngineImpl xpathEngine = (XPathEngineImpl)XPathEngineFactory.getXPathEngine();
 		DefaultHandler handler = XPathEngineFactory.getSAXHandler();
-		String[] expressions = new String[]{"/rss", "/rss/channel"};
+		String[] expressions = new String[]{"/rss", "/rss/channel", "/rss/channel/item[title[contains(text(), \"In Energy Work, One Hand Giveth and the Other Taketh\")]]"};
 		xpathEngine.setXPaths(expressions);
 		
 		boolean[] res = xpathEngine.evaluateSAX(xmlInput, handler);

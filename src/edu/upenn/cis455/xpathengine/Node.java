@@ -6,6 +6,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Path Node to satisfy the structure of Given Query
+ * @author cis555
+ *
+ */
 public class Node {
 	String path;
 	String pathname;

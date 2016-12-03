@@ -9,6 +9,11 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+/**
+ * SAXHandler to parse given XML
+ * @author cis555
+ *
+ */
 public class SAXHandler extends DefaultHandler{ 
 	int level = 0;
 	List<Node> textChecklist = new ArrayList<Node>();

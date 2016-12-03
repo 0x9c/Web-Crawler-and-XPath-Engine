@@ -45,7 +45,7 @@
     
     <target name="compile-crawler" depends="compile-storage" description="Compiles the crawler">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="src/edu/upenn/cis455/crawler" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
+        <javac srcdir="src/edu/upenn" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
             <classpath>
                 <fileset dir="${inputlib.dir}">
                     <include name="*.jar"/>
@@ -138,7 +138,7 @@
 			<classpath>
 				<path refid="classpath"/>
 			</classpath>
-			<arg value="http://crawltest.cis.upenn.edu"/>
+			<arg value="https://dbappserv.cis.upenn.edu/crawltest.html"/>
 			<arg value="/tmp/database/dtianx"/>
 			<arg value="20"/>
 		</java>
@@ -148,7 +148,7 @@
 		<exec dir="." executable="sudo">
 	        <arg value="cp"/>
 			<arg value="servlet.war"/>
-	        <arg value="/usr/share/jetty8/webapps/"/>
+	        <arg value="/usr/share/jetty8/webapps/root.war"/>
 	        <redirector inputstring="cis555password"/>        
 		</exec>
 		
