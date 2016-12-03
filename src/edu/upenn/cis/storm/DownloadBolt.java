@@ -82,13 +82,13 @@ public class DownloadBolt implements IRichBolt{
 		/* The Downloader itself updated the last visited time */
 		PageDownloader.download(url, doc, type);
 		
-		synchronized(urlQueue) {
+//		synchronized(urlQueue) {
 			urlQueue.visitedURLs.put(url, RobotCache.getLastVisited(url));
 			urlQueue.URLexecuted += 1;
 			log.info("----> " + url + ": Downloading");
 			log.info("size: " + doc.toString().length());
 			log.info(urlQueue.URLexecuted);
-		}
+//		}
 		
 		List<String> linklist = new ArrayList<String>();
 		Elements links = doc.select("a[href]");

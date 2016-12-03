@@ -114,12 +114,12 @@ public class XPathCrawler {
         
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout(URL_SPOUT, spout, 2);
-        builder.setBolt(CRAWLER_BOLT, boltA, 18).fieldsGrouping(URL_SPOUT, new Fields("URL"));
+        builder.setSpout(URL_SPOUT, spout, 10);
+        builder.setBolt(CRAWLER_BOLT, boltA, 10).fieldsGrouping(URL_SPOUT, new Fields("URL"));
         
-        builder.setBolt(DOWNLOAD_BOLT, boltB, 18).shuffleGrouping(CRAWLER_BOLT);
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 10).shuffleGrouping(CRAWLER_BOLT);
         //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 30).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 10).shuffleGrouping(DOWNLOAD_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();
@@ -138,7 +138,9 @@ public class XPathCrawler {
         cluster.submitTopology("crawler", config, 
         		builder.createTopology());
         
-        int EXIT = 3;
+        int targetExit = 100000;
+        int EXIT = targetExit;
+        
         while(urlQueue.URLexecuted < maxFileNum) {
         	int size = urlQueue.getSize();
         	// keep waiting...
@@ -159,7 +161,7 @@ public class XPathCrawler {
             		e.printStackTrace();
             	}
             } else {
-            	EXIT = 3;
+            	EXIT = targetExit;
             }
         }
         

@@ -3,6 +3,7 @@ package edu.upenn.cis455.crawler;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import org.apache.log4j.Logger;
@@ -16,9 +17,9 @@ import edu.upenn.cis455.crawler.info.Client;
  *
  */
 public class URLFrontierQueue {
-	public HashMap<String, Long> visitedURLs = new HashMap<String, Long>();
-	private Queue<String> queue = new LinkedList<String>();
-//	private Queue<String> queue = new LinkedBlockingQueue<String>();
+	public ConcurrentHashMap<String, Long> visitedURLs = new ConcurrentHashMap<String, Long>();
+//	private Queue<String> queue = new LinkedList<String>();
+	private Queue<String> queue = new LinkedBlockingQueue<String>();
 	private int maxSize = Integer.MAX_VALUE;
 	public volatile static int URLexecuted = 0;
 	static Logger log = Logger.getLogger(URLFrontierQueue.class);

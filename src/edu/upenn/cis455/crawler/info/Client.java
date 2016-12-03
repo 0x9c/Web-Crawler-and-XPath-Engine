@@ -74,9 +74,11 @@ public class Client {
 				if(isGET) return c.getInputStream();
 				else return null;
 			} catch(MalformedURLException e){
-				e.printStackTrace();
+				log.error(url);
+				log.error(ExceptionUtils.getStackTrace(e));
 			} catch(IOException e){
-				e.printStackTrace();
+				log.error(url);
+				log.error(ExceptionUtils.getStackTrace(e));
 			}
 		} else if(url.startsWith("http")){
 			try{
@@ -142,8 +144,10 @@ public class Client {
 				if(isGET) return c.getInputStream();
 				else return null;
 			} catch (UnknownHostException e) {
+				log.error(url);
 				log.error(ExceptionUtils.getStackTrace(e));
 			} catch (IOException e) {
+				log.error(url);
 				log.error(ExceptionUtils.getStackTrace(e));
 			} 
 		} 

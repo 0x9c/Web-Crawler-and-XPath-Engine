@@ -60,9 +60,11 @@ public class PageDownloader {
 	public static void download(String url, Document doc, String type){	
 		String body = doc.toString();
 		byte[] content = body.getBytes();
-		db.putPage(url, content, type);	
 		RobotCache.setCurrentTime(url);
-		db.sync();
+		
+		// Local BDB has been replaced by Amazon S3
+		//db.putPage(url, content, type);	 
+		//db.sync();
 		
 		
 		AWSCredentials credentials = new BasicAWSCredentials(

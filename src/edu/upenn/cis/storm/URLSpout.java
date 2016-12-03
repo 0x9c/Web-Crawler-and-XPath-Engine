@@ -58,7 +58,7 @@ public class URLSpout implements IRichSpout{
 
 	@Override
 	public void nextTuple() {
-		synchronized(urlQueue) {
+//		synchronized(urlQueue) {
 			if(!urlQueue.isEmpty()) {
 				String curURL = urlQueue.popURL();
 				if(!RobotCache.checkDelay(curURL)) {
@@ -69,7 +69,7 @@ public class URLSpout implements IRichSpout{
 					this.collector.emit(new Values<Object>(curURL));
 				}
 			}
-		}
+//		}
 		Thread.yield();
 	}
 
