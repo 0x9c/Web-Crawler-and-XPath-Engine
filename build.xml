@@ -26,7 +26,7 @@
         <javac srcdir="src/edu/upenn/cis455/xpathengine" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
             <classpath>
                 <fileset dir="${inputlib.dir}">
-                    <include name="*.jar"/>
+                    <include name="**/*.jar"/>
                 </fileset>
             </classpath>
         </javac>
@@ -37,7 +37,7 @@
         <javac srcdir="src/edu/upenn/cis455/storage" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
             <classpath>
                 <fileset dir="${inputlib.dir}">
-                    <include name="*.jar"/>
+                    <include name="**/*.jar"/>
                 </fileset>
             </classpath>
         </javac>
@@ -48,7 +48,7 @@
         <javac srcdir="src/edu/upenn" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
             <classpath>
                 <fileset dir="${inputlib.dir}">
-                    <include name="*.jar"/>
+                    <include name="**/*.jar"/>
                 </fileset>
             </classpath>
         </javac>
@@ -59,7 +59,7 @@
         <javac srcdir="src/edu/upenn/cis455/servlet" destdir="${classes.dir}" debug="on" deprecation="off" optimize="on" includeAntRuntime="no">
             <classpath>
                 <fileset dir="${inputlib.dir}">
-                    <include name="*.jar"/>
+                    <include name="**/*.jar"/>
                 </fileset>
             </classpath>
         </javac>
@@ -71,7 +71,7 @@
 	<classpath>
 	  <pathelement path="${classes.dir}" />
 	  <fileset dir="${inputlib.dir}">
-	    <include name="*.jar"/>
+	    <include name="**/*.jar"/>
 	  </fileset>
 	</classpath>
       </javac>
@@ -83,7 +83,7 @@
           <pathelement location="${test-classes.dir}"/>
           <pathelement location="${classes.dir}"/>
            <fileset dir="${inputlib.dir}">
-               <include name="*.jar"/>
+               <include name="**/*.jar"/>
            </fileset>
         </classpath>
         <arg value="test.edu.upenn.cis455.RunAllTests"/>
@@ -111,7 +111,7 @@
         <copy file="${conf.dir}${file.separator}web.xml" tofile="${web-inf.dir}${file.separator}web.xml" overwrite="true" />
         <copy todir="${web-inf.lib.dir}" overwrite="true">
             <fileset dir="${inputlib.dir}">
-                <include name="*.jar"/>
+                <include name="**/*.jar"/>
             </fileset>
         </copy>
         <jar destfile="servlet.war" update="true">
@@ -138,8 +138,8 @@
 			<classpath>
 				<path refid="classpath"/>
 			</classpath>
-			<arg value="https://dbappserv.cis.upenn.edu/crawltest.html"/>
-			<arg value="/tmp/database/dtianx"/>
+			<arg value="https://www.facebook.com"/>
+			<arg value="./dtianx"/>
 			<arg value="20"/>
 		</java>
 	</target>

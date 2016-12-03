@@ -41,10 +41,6 @@
 	<classpathentry kind="lib" path="lib/S3library/spring-context-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/S3library/spring-core-3.0.7.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/S3library/spring-test-3.0.7.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/ApacheCommons/commons-codec-1.10-javadoc.jar"/>
-	<classpathentry kind="lib" path="lib/ApacheCommons/commons-codec-1.10-sources.jar"/>
-	<classpathentry kind="lib" path="lib/ApacheCommons/commons-codec-1.10-test-sources.jar"/>
-	<classpathentry kind="lib" path="lib/ApacheCommons/commons-codec-1.10-tests.jar"/>
-	<classpathentry kind="lib" path="lib/ApacheCommons/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/commons-httpclient.jar"/>
 	<classpathentry kind="output" path="target/classes/"/>
 </classpath>

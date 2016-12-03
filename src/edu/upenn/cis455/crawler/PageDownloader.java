@@ -20,7 +20,6 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import org.apache.log4j.Logger;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 
-import edu.upenn.cis.storm.DownloadBolt;
 import edu.upenn.cis455.crawler.info.Client;
 import edu.upenn.cis455.storage.DBWrapper;
 
