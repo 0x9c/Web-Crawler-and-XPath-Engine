@@ -63,6 +63,14 @@ public class URLFrontierQueue {
 		return queue.poll();
 	}
 	
+	public synchronized void addExecutedSize(){
+		URLexecuted++;
+	}
+	
+	public synchronized int getExecutedSize(){
+		return URLexecuted;
+	}
+	
 	public void pushURL(String url){
 		queue.add(url);
 		Client client = new Client(url);

@@ -84,10 +84,10 @@ public class DownloadBolt implements IRichBolt{
 		
 //		synchronized(urlQueue) {
 			urlQueue.visitedURLs.put(url, RobotCache.getLastVisited(url));
-			urlQueue.URLexecuted += 1;
+			urlQueue.addExecutedSize();
 			log.info("----> " + url + ": Downloading");
 			log.info("size: " + doc.toString().length());
-			log.info(urlQueue.URLexecuted);
+			log.info(urlQueue.getExecutedSize());
 //		}
 		
 		List<String> linklist = new ArrayList<String>();
