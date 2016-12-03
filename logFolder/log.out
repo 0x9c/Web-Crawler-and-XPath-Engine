@@ -1,27 +1,598 @@
-INFO  DownloadBolt:88 -[pool-1-thread-3] de684b80-85e9-45f9-b73f-bc781179f13d----> https://www.facebook.com: Downloading
-INFO  DownloadBolt:89 -[pool-1-thread-3] size: 105797
-INFO  DownloadBolt:90 -[pool-1-thread-3] 1
-INFO  MatchBolt:103 -[pool-1-thread-4] TYPE: text/html
-INFO  FilterBolt:93 -[pool-1-thread-2] https://www.facebook.com/ --> pushed into queue
-INFO  FilterBolt:93 -[pool-1-thread-2] https://www.facebook.com# --> pushed into queue
-INFO  DownloadBolt:88 -[pool-1-thread-5] 9c5cba8c-7def-4491-9315-bc46976c8af0----> https://www.facebook.com/: Downloading
-INFO  DownloadBolt:89 -[pool-1-thread-5] size: 105826
-INFO  DownloadBolt:90 -[pool-1-thread-5] 2
-INFO  MatchBolt:103 -[pool-1-thread-1] TYPE: text/html
-INFO  DownloadBolt:88 -[pool-1-thread-4] e5dad0a2-9ddc-46f7-ae37-9510a398817c----> https://www.facebook.com#: Downloading
-INFO  DownloadBolt:89 -[pool-1-thread-4] size: 106058
-INFO  DownloadBolt:90 -[pool-1-thread-4] 3
-INFO  MatchBolt:103 -[pool-1-thread-5] TYPE: text/html
-INFO  FilterBolt:93 -[pool-1-thread-1] https://es-la.facebook.com/ --> pushed into queue
-INFO  FilterBolt:93 -[pool-1-thread-1] https://fr-fr.facebook.com/ --> pushed into queue
-INFO  FilterBolt:93 -[pool-1-thread-1] https://zh-cn.facebook.com/ --> pushed into queue
-INFO  DownloadBolt:88 -[pool-1-thread-5] c56ac5f0-a7f6-4ecd-acfe-0af2dd7c4511----> https://es-la.facebook.com/: Downloading
-INFO  DownloadBolt:89 -[pool-1-thread-5] size: 105252
-INFO  DownloadBolt:90 -[pool-1-thread-5] 4
-INFO  MatchBolt:103 -[pool-1-thread-3] TYPE: text/html
+INFO  DownloadBolt:88 -[pool-1-thread-70] ----> https://www.facebook.com: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-70] size: 104813
+INFO  DownloadBolt:90 -[pool-1-thread-70] 1
+INFO  FilterBolt:93 -[pool-1-thread-38] https://www.facebook.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-38] https://www.facebook.com# --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-20] ----> https://www.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-20] size: 104779
+INFO  DownloadBolt:90 -[pool-1-thread-20] 2
+INFO  FilterBolt:93 -[pool-1-thread-2] https://es-la.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-19] ----> https://www.facebook.com#: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-19] size: 104880
+INFO  DownloadBolt:90 -[pool-1-thread-19] 3
+INFO  FilterBolt:93 -[pool-1-thread-2] https://fr-fr.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-63] ----> https://es-la.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-63] size: 104307
+INFO  DownloadBolt:90 -[pool-1-thread-63] 4
+INFO  FilterBolt:93 -[pool-1-thread-2] https://zh-cn.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-17] ----> https://fr-fr.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-17] size: 103975
+INFO  DownloadBolt:90 -[pool-1-thread-17] 5
+INFO  DownloadBolt:88 -[pool-1-thread-33] ----> https://zh-cn.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-33] size: 102409
+INFO  DownloadBolt:90 -[pool-1-thread-33] 6
 INFO  FilterBolt:93 -[pool-1-thread-2] https://ar-ar.facebook.com/ --> pushed into queue
 INFO  FilterBolt:93 -[pool-1-thread-2] https://pt-br.facebook.com/ --> pushed into queue
-INFO  DownloadBolt:88 -[pool-1-thread-5] de684b80-85e9-45f9-b73f-bc781179f13d----> https://fr-fr.facebook.com/: Downloading
-INFO  DownloadBolt:89 -[pool-1-thread-5] size: 105035
-INFO  DownloadBolt:90 -[pool-1-thread-5] 5
+INFO  DownloadBolt:88 -[pool-1-thread-21] ----> https://pt-br.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-21] size: 103716
+INFO  DownloadBolt:90 -[pool-1-thread-21] 7
 INFO  FilterBolt:93 -[pool-1-thread-2] https://it-it.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-53] ----> https://ar-ar.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-53] size: 108129
+INFO  DownloadBolt:90 -[pool-1-thread-53] 8
+INFO  FilterBolt:93 -[pool-1-thread-2] https://ko-kr.facebook.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] https://de-de.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-64] ----> https://ko-kr.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-64] size: 103749
+INFO  DownloadBolt:90 -[pool-1-thread-64] 9
+INFO  DownloadBolt:88 -[pool-1-thread-32] ----> https://it-it.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-32] size: 102890
+INFO  DownloadBolt:90 -[pool-1-thread-32] 10
+INFO  FilterBolt:93 -[pool-1-thread-2] https://hi-in.facebook.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] https://ja-jp.facebook.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-41] ----> https://de-de.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-41] size: 103430
+INFO  DownloadBolt:90 -[pool-1-thread-41] 11
+INFO  FilterBolt:93 -[pool-1-thread-2] https://messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] https://es-la.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-6] ----> https://hi-in.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-6] size: 105788
+INFO  DownloadBolt:90 -[pool-1-thread-6] 12
+INFO  DownloadBolt:88 -[pool-1-thread-37] ----> https://messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-37] size: 129771
+INFO  DownloadBolt:90 -[pool-1-thread-37] 13
+INFO  FilterBolt:93 -[pool-1-thread-48] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=BAQHsOICT&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-2] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQE3q6se&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-26] ----> https://ja-jp.facebook.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-26] size: 104552
+INFO  DownloadBolt:90 -[pool-1-thread-26] 14
+INFO  FilterBolt:93 -[pool-1-thread-2] https://developers.facebook.com/?ref=pf --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] https://fr-fr.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=pAQGNTR2a&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-49] ----> https://es-la.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-49] size: 130134
+INFO  DownloadBolt:90 -[pool-1-thread-49] 15
+INFO  FilterBolt:93 -[pool-1-thread-8] https://zh-cn.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-42] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=XAQEju9CL&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=oAQFs0EGC&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=FAQGWfoU_&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-68] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQE3q6se&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-68] size: 80126
+INFO  DownloadBolt:90 -[pool-1-thread-68] 16
+INFO  DownloadBolt:88 -[pool-1-thread-45] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=BAQHsOICT&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-45] size: 80084
+INFO  DownloadBolt:90 -[pool-1-thread-45] 17
+INFO  DownloadBolt:88 -[pool-1-thread-65] ----> https://fr-fr.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-65] size: 129647
+INFO  DownloadBolt:90 -[pool-1-thread-65] 18
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.messenger.com/features --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-42] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=fAQHVzuGZ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-8] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=-AQEfZ2zH&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-1] ----> https://developers.facebook.com/?ref=pf: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-1] size: 114978
+INFO  DownloadBolt:90 -[pool-1-thread-1] 19
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products/login --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://messengerplatform.fb.com --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-66] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=vAQHhz-Yz&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-66] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=eAQFw2G9M&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-5] ----> https://zh-cn.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-5] size: 130108
+INFO  DownloadBolt:90 -[pool-1-thread-5] 20
+INFO  DownloadBolt:88 -[pool-1-thread-39] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=pAQGNTR2a&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-39] size: 81289
+INFO  DownloadBolt:90 -[pool-1-thread-39] 21
+INFO  DownloadBolt:88 -[pool-1-thread-36] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=FAQGWfoU_&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-36] size: 80111
+INFO  DownloadBolt:90 -[pool-1-thread-36] 22
+INFO  FilterBolt:93 -[pool-1-thread-70] https://de-de.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-34] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=nAQFf0ZxY&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://market.android.com/details?id=com.facebook.orca --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-60] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=oAQFs0EGC&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-60] size: 83179
+INFO  DownloadBolt:90 -[pool-1-thread-60] 23
+INFO  FilterBolt:93 -[pool-1-thread-28] https://pt-br.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products/sharing/overview --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-16] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=XAQEju9CL&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-16] size: 81211
+INFO  DownloadBolt:90 -[pool-1-thread-16] 24
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products/analytics --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-28] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=9AQFWmRO6&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-3] https://ko-kr.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-3] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=QAQHCxkq-&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-67] https://ar-ar.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-34] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=CAQETvcM4&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://momentsapp.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-70] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQEdmOQa&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] https://it-it.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-4] ----> https://www.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-4] size: 129717
+INFO  DownloadBolt:90 -[pool-1-thread-4] 25
+INFO  DownloadBolt:88 -[pool-1-thread-59] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=-AQEfZ2zH&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-59] size: 80298
+INFO  DownloadBolt:90 -[pool-1-thread-59] 26
+INFO  FilterBolt:93 -[pool-1-thread-43] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=6AQGxJAV0&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-51] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ZAQFs7dIZ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-51] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=JAQGIQNh9&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=qAQGU4JNt&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=FAQFYxB_t&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=cAQGSKQSh&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=iAQHakYCT&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-67] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=GAQE4O1u_&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-40] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=fAQHVzuGZ&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-40] size: 83097
+INFO  DownloadBolt:90 -[pool-1-thread-40] 27
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products/app-monetization/audience-network/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-18] ----> https://www.messenger.com/features: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-18] size: 133056
+INFO  DownloadBolt:90 -[pool-1-thread-18] 28
+INFO  FilterBolt:93 -[pool-1-thread-41] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products/messenger/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/products --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-2] ----> https://messengerplatform.fb.com: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-2] size: 14753
+INFO  DownloadBolt:90 -[pool-1-thread-2] 29
+ERROR BoltTask:55 -[pool-1-thread-10] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQH_bIXp&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=aAQG1xK0M&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-26] ----> https://developers.facebook.com/products/login: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-26] size: 108644
+INFO  DownloadBolt:90 -[pool-1-thread-26] 30
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=3AQFeNlRw&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=fAQEnxrF8&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=wAQFahd89&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-63] https://developers.facebook.com/docs/facebook-login --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=MAQFjVoGf&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=EAQE4qV-5&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQH4fg1B&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-66] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-22] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=vAQHhz-Yz&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-22] size: 81257
+INFO  DownloadBolt:90 -[pool-1-thread-22] 31
+INFO  FilterBolt:93 -[pool-1-thread-13] https://www.messenger.com --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/docs/android/getting-started --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=SAQEIPlKE&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=8AQGN8CVt&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=PAQFdxgzt&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=EAQEol68W&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/docs/ios/getting-started --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-69] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=nAQFf0ZxY&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-69] size: 81279
+INFO  DownloadBolt:90 -[pool-1-thread-69] 32
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] https://messengerplatform.fb.com/ --> pushed into queue
+ERROR BoltTask:55 -[pool-1-thread-30] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=4AQFFmt2R&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=AAQG-Uk-b&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-51] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-27] ----> https://de-de.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-27] size: 129177
+INFO  DownloadBolt:90 -[pool-1-thread-27] 33
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=uAQEbtaAB&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQH1mX_s&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-61] https://ja-jp.messenger.com/ --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-56] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=eAQFw2G9M&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-56] size: 83140
+INFO  DownloadBolt:90 -[pool-1-thread-56] 34
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=EAQF-7NJO&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-38] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=lAQG77-q1&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-36] ----> https://pt-br.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-36] size: 129755
+INFO  DownloadBolt:90 -[pool-1-thread-36] 35
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=9AQFRjhkG&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-61] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=3AQFHKl6z&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=0AQGVKv0i&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=lAQGKFCCZ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=CAQGAxK6L&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=DAQHAqnVb&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-5] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=ZAQHC1m-z&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=IAQH-cm-d&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=3AQGfvoD5&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-34] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-62] ----> https://market.android.com/details?id=com.facebook.orca: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-62] size: 375005
+INFO  DownloadBolt:90 -[pool-1-thread-62] 36
+INFO  FilterBolt:93 -[pool-1-thread-13] http://messengerblog.com --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] https://developers.facebook.com/docs/messenger-platform --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-52] https://hi-in.messenger.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/docs/tvos --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=CAQEvVLOf&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=YAQHt7qay&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/docs/javascript --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-52] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=BAQE0gNXz&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-23] ----> https://developers.facebook.com/products/analytics: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-23] size: 110529
+INFO  DownloadBolt:90 -[pool-1-thread-23] 37
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.messenger.com/features#hdcalls --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.messenger.com/features#texts --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://www.google.com/webhp?tab=8w --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] http://www.google.com/imghp?hl=en&tab=8i --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-66] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQEZAQJc&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=nAQFEGNhF&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=jAQHC8Y4k&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQEZX7Eu&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-53] ----> https://developers.facebook.com/products/sharing/overview: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-53] size: 111835
+INFO  DownloadBolt:90 -[pool-1-thread-53] 38
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=mAQFso2V-&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-54] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=pAQE-Bmca&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-54] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=IAQHvtYS7&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=bAQEtYYIa&s=1 --> pushed into queue
+ERROR BoltTask:55 -[pool-1-thread-24] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/web --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/android --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=eAQHfFYt2&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=9AQGKVhM7&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-51] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=KAQFpCldj&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ZAQGMOfbZ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=wAQEYexoC&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-59] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=9AQFWmRO6&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-59] size: 80197
+INFO  DownloadBolt:90 -[pool-1-thread-59] 39
+INFO  FilterBolt:93 -[pool-1-thread-44] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://maps.google.com/maps?hl=en&tab=8l --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] https://vip.wordpress.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-4] https://analytics.facebook.com/?__aref_src=devsite&__aref_id=product_analytics --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-4] https://developers.facebook.com/docs/analytics/quickstart --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/11/30/instant-games-closed-beta/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=cAQFUza5H&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=kAQFgcjYr&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/11/14/bots-for-messenger-adding-analytics-and-fbstart-program/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-4] https://developers.facebook.com/products/push-notifications --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-2] ----> https://itunes.apple.com/app/id454638411: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-2] size: 96611
+INFO  DownloadBolt:90 -[pool-1-thread-2] 40
+INFO  XPathCrawler:155 -[main] urlQueue size: 100
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.messenger.com/features#photos --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://www.youtube.com/?tab=81 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=fAQF7IXsu&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=SAQFC2I0q&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-34] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=eAQGxEwCs&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=1AQFmHt8M&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQGsecmz&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/ios --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-28] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=QAQHCxkq-&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-28] size: 80067
+INFO  DownloadBolt:90 -[pool-1-thread-28] 41
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ZAQF67hul&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-70] ----> https://ko-kr.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-70] size: 130475
+INFO  DownloadBolt:90 -[pool-1-thread-70] 42
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQFERB9o&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/reference/share-dialog --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=MAQEt_bk4&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=iAQGPaS5q&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-5] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-17] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=5AQE3sw-P&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=UAQHbWZgE&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=BAQEsrTIb&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-57] ----> https://ar-ar.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-57] size: 132075
+INFO  DownloadBolt:90 -[pool-1-thread-57] 43
+INFO  FilterBolt:93 -[pool-1-thread-9] https://www.google.com/intl/en/options/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.messenger.com/features#stickers --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-37] https://www.messenger.com/features#voicemessages --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-49] https://itunes.apple.com/app/id454638411#ac-gn-menustate --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-4] https://developers.facebook.com/products/ads --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=fAQEb7d3M&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=NAQElIDMp&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/11/08/messenger-platform-1-3-new-ways-to-drive-conversation/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=BAQG7bVNP&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/11/01/unity-editor-beta/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=RAQFE7bgn&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-4] https://analytics.facebook.com/features --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-8] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQEdmOQa&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-8] size: 80214
+INFO  DownloadBolt:90 -[pool-1-thread-8] 44
+INFO  FilterBolt:93 -[pool-1-thread-49] https://itunes.apple.com/app/id454638411# --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-42] https://www.messenger.com/features#groups --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/apps --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=JAQF0YaWn&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=LAQGirlFM&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=QAQHNKNY-&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=0AQEht5Oe&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=gAQH7yi1i&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/android#Additional --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/ios#Additional --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-19] ----> http://momentsapp.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-19] size: 10634
+INFO  DownloadBolt:90 -[pool-1-thread-19] 45
+INFO  DownloadBolt:88 -[pool-1-thread-35] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=CAQETvcM4&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-35] size: 83146
+INFO  DownloadBolt:90 -[pool-1-thread-35] 46
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=hAQFDbc5B&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-45] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=vAQG26OJH&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-45] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=aAQHluHo2&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=DAQHC_7_h&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-56] http://momentsapp.com/# --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/insights --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-29] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=4AQEWYn8r&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-5] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-25] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=8AQEjvrZq&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQEiW81d&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=MAQHuTzS4&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=8AQFEvi5E&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-63] ----> https://it-it.messenger.com/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-63] size: 128975
+INFO  DownloadBolt:90 -[pool-1-thread-63] 47
+INFO  FilterBolt:93 -[pool-1-thread-49] https://www.apple.com/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=vAQFNG_Q7&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=FAQFgs22i&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/10/27/ensuring-more-quality-outcomes-with-audience-network/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-41] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=AAQHIOKNz&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-21] https://developers.facebook.com/blog/post/2016/10/27/login-for-tv-and-android/ --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=MAQHyTxcA&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ZAQH7_EaI&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=KAQH5bnQv&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=PAQHhVKOk&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=5AQF_fEGw&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-32] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=ZAQFs7dIZ&s=1: Downloading
+ERROR BoltTask:55 -[pool-1-thread-49] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  DownloadBolt:89 -[pool-1-thread-32] size: 81210
+INFO  DownloadBolt:90 -[pool-1-thread-32] 48
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/apps/category/GAME --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-16] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=zAQH7xh_e&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-16] http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=NAQEFdq2L&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=bAQE40TRQ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQHfbgbA&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=pAQHvVs7P&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=JAQFiHpII&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ZAQETcRfc&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-43] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=fAQGA3RgG&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/webmasters --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/reference/send-dialog --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-55] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=6AQGxJAV0&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-55] size: 81209
+INFO  DownloadBolt:90 -[pool-1-thread-55] 49
+INFO  FilterBolt:93 -[pool-1-thread-56] https://itunes.apple.com/app/id991346515 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=3AQFVoiUy&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=xAQEtJn0W&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-54] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-15] ----> http://itunes.apple.com/app/id454638411: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-15] size: 96611
+INFO  DownloadBolt:90 -[pool-1-thread-15] 50
+INFO  DownloadBolt:88 -[pool-1-thread-59] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=qAQGU4JNt&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-59] size: 80178
+INFO  DownloadBolt:90 -[pool-1-thread-59] 51
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=UAQFwbKt7&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=EAQEL8TxT&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-56] https://play.google.com/store/apps/details?id=com.facebook.moments --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/android#triggering --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=CAQG064F9&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=AAQGkib7T&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=vAQGSs4Zk&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-38] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.windowsphone.com%2Fs%3Fappid%3D3219d30d-4a23-4f58-a91c-c44b04e6a0c7&h=JAQGIQNh9&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-38] size: 83271
+INFO  DownloadBolt:90 -[pool-1-thread-38] 52
+INFO  FilterBolt:93 -[pool-1-thread-48] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/apps/category/FAMILY --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=PAQFi3TT_&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-1] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQE3xGEG&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-40] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=cAQGSKQSh&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-40] size: 80221
+INFO  DownloadBolt:90 -[pool-1-thread-40] 53
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=_AQFU6yE5&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/apps/collection/editors_choice --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-48] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=IAQFxUKrk&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=HAQGs7BLz&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/docs/sharing/ios#message --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-6] https://developers.facebook.com/products/sharing/app-invites --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-2] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=FAQFYxB_t&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-2] size: 80081
+INFO  DownloadBolt:90 -[pool-1-thread-2] 54
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQHToQXI&s=1 --> pushed into queue
+ERROR BoltTask:55 -[pool-1-thread-65] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  FilterBolt:93 -[pool-1-thread-14] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=IAQFDFRE7&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-45] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-54] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-10] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=GAQE4O1u_&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-10] size: 80106
+INFO  DownloadBolt:90 -[pool-1-thread-10] 55
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=DAQE1rgKL&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=jAQEitvkN&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=5AQHViEJF&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-16] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-22] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=iAQHakYCT&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-22] size: 80184
+INFO  DownloadBolt:90 -[pool-1-thread-22] 56
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/movies --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=rAQGqnIRq&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=ZAQGlL4sM&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=3AQG7DXMb&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=pAQFvH37d&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=tAQE_l4bi&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=hAQE0Kudj&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=xAQEt4BsL&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-53] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/movies/category/TV --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/movies/category/FAMILY --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=tAQHrQiy7&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-19] ----> https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-19] size: 199924
+INFO  DownloadBolt:90 -[pool-1-thread-19] 57
+INFO  FilterBolt:93 -[pool-1-thread-50] http://itunes.apple.com/app/id454638411 --> pushed into queue
+INFO  XPathCrawler:155 -[main] urlQueue size: 200
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=NAQHM3HaY&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-17] ----> http://itunes.apple.com/app/id454638411: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-17] size: 96611
+INFO  DownloadBolt:90 -[pool-1-thread-17] 58
+INFO  FilterBolt:93 -[pool-1-thread-45] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  XPathCrawler:155 -[main] urlQueue size: 200
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQEhbp33&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=tAQGRf6fd&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=-AQGjZp5r&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=KAQG9rAOf&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=JAQGTUGRL&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-23] https://www.microsoft.com --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-44] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=bAQE40TRQ&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-61] ----> https://developers.facebook.com/products/app-monetization/audience-network/: Downloading
+ERROR BoltTask:55 -[pool-1-thread-18] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  DownloadBolt:89 -[pool-1-thread-61] size: 109529
+INFO  DownloadBolt:90 -[pool-1-thread-61] 59
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/movies/collection/promotion_collections_movie_studios --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=GAQFacdGJ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-30] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=gAQFmFto4&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-64] ----> https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-64] size: 199922
+INFO  DownloadBolt:90 -[pool-1-thread-64] 60
+INFO  DownloadBolt:88 -[pool-1-thread-66] ----> https://developers.facebook.com/products: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-66] size: 89623
+INFO  DownloadBolt:90 -[pool-1-thread-66] 61
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=XAQE_Mzzq&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/movies/collection/promotion_collections_tv_networks --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-32] https://developers.facebook.com/docs/audience-network --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-16] https://www.windowsphone.com/s?appid=3219d30d-4a23-4f58-a91c-c44b04e6a0c7 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-11] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=wAQESQAjX&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-23] https://www.microsoftstore.com/store/msusa/en_US/home --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=MAQEk6SlF&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-41] ----> https://developers.facebook.com/products/messenger/: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-41] size: 112487
+INFO  DownloadBolt:90 -[pool-1-thread-41] 62
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQGLix-6&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=AAQH-_iOm&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=xAQGI9TzL&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=1AQGYkRbf&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-47] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=mAQHqkMYs&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=IAQF_gjLn&s=1 --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-56] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=aAQG1xK0M&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-56] size: 80014
+INFO  DownloadBolt:90 -[pool-1-thread-56] 63
+INFO  FilterBolt:93 -[pool-1-thread-13] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=bAQEM8JNn&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=7AQHPKGhA&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=CAQElu4Si&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-23] https://www.microsoftstore.com/store/msusa/en_US/cat/All-Surface/categoryID.69403400?icid=en_US_Store_UH_devices_Surface --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-62] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=6AQH_bIXp&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-62] size: 80232
+INFO  DownloadBolt:90 -[pool-1-thread-62] 64
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/store/music --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=iAQEWjiG_&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=QAQE3k98L&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-70] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=YAQEiaeRu&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-70] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=1AQF8ebDV&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-46] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=oAQGvbIxC&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-70] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=jAQEmYexr&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-55] https://developers.facebook.com/products/account-kit --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-2] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=fAQEnxrF8&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-2] size: 80093
+INFO  DownloadBolt:90 -[pool-1-thread-2] 65
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=pAQFY9c_Y&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-53] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=UAQEk9b4i&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-9] https://play.google.com/music?authuser --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-35] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=pAQHXzY7G&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-32] https://developers.facebook.com/docs/audience-network/case-studies --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-23] https://www.microsoftstore.com/store/msusa/en_US/cat/All-PCs-tablets/categoryID.69404700?icid=en_US_Store_UH_devices_Pctab --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-23] https://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.69405400?icid=en_US_Store_UH_devices_Xbox --> pushed into queue
+INFO  DownloadBolt:88 -[pool-1-thread-67] ----> http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=3AQFeNlRw&s=1: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-67] size: 81316
+INFO  DownloadBolt:90 -[pool-1-thread-67] 66
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=3AQGgxcH4&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=NAQF6JTrf&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=WAQHIggKV&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-33] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=PAQEMdhD4&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=wAQHQuQk-&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-13] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=jAQGnquwF&s=1 --> pushed into queue
+ERROR BoltTask:55 -[pool-1-thread-31] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+ERROR BoltTask:55 -[pool-1-thread-4] java.lang.NullPointerException
+	at edu.upenn.cis455.crawler.info.Client.isValidType(Client.java:174)
+	at edu.upenn.cis455.crawler.info.Client.isValid(Client.java:170)
+	at edu.upenn.cis455.crawler.URLFrontierQueue.filter(URLFrontierQueue.java:34)
+	at edu.upenn.cis.storm.FilterBolt.execute(FilterBolt.java:89)
+	at edu.upenn.cis.stormlite.tasks.BoltTask.run(BoltTask.java:50)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+INFO  DownloadBolt:88 -[pool-1-thread-6] ----> https://developers.facebook.com/docs/facebook-login: Downloading
+INFO  DownloadBolt:89 -[pool-1-thread-6] size: 127910
+INFO  DownloadBolt:90 -[pool-1-thread-6] 67
+INFO  FilterBolt:93 -[pool-1-thread-13] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=LAQGzgvuS&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-33] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=OAQG5TkvQ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-33] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=sAQEAylwZ&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-33] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=TAQEpoX4j&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-57] http://l.facebook.com/l.php?u=http%3A%2F%2Fmomentsapp.com%2F&h=bAQExMyer&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=iAQG1KxEV&s=1 --> pushed into queue
+INFO  FilterBolt:93 -[pool-1-thread-50] http://l.facebook.com/l.php?u=http%3A%2F%2Fitunes.apple.com%2Fapp%2Fid454638411&h=2AQGS5bnS&s=1 --> pushed into queue

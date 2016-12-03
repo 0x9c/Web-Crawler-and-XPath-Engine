@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,6 +34,7 @@ public class XPathCrawler {
 	private int maxFileNum = Integer.MAX_VALUE;
 	public static URLFrontierQueue urlQueue;
 	public static String dbPath;
+	static Logger log = Logger.getLogger(XPathCrawler.class);
 	
 	public XPathCrawler(){}
 	
@@ -97,7 +99,7 @@ public class XPathCrawler {
 		String URL_SPOUT = "URL_SPOUT";
 	    String CRAWLER_BOLT = "CRAWLER_BOLT";
 	    String DOWNLOAD_BOLT = "DOWNLOAD_BOLT";
-	    String MATCH_BOLT = "MATCH_BOLT";
+	    //String MATCH_BOLT = "MATCH_BOLT";
 	    String FILTER_BOLT = "FILTER_BOLT";
 	    
         Config config = new Config();
@@ -112,12 +114,12 @@ public class XPathCrawler {
         
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout(URL_SPOUT, spout, 1);
-        builder.setBolt(CRAWLER_BOLT, boltA, 6).fieldsGrouping(URL_SPOUT, new Fields("URL"));
+        builder.setSpout(URL_SPOUT, spout, 2);
+        builder.setBolt(CRAWLER_BOLT, boltA, 18).fieldsGrouping(URL_SPOUT, new Fields("URL"));
         
-        builder.setBolt(DOWNLOAD_BOLT, boltB, 4).shuffleGrouping(CRAWLER_BOLT);
-        builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 4).shuffleGrouping(MATCH_BOLT);
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 18).shuffleGrouping(CRAWLER_BOLT);
+        //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 30).shuffleGrouping(DOWNLOAD_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();
@@ -136,17 +138,28 @@ public class XPathCrawler {
         cluster.submitTopology("crawler", config, 
         		builder.createTopology());
         
-        
+        int EXIT = 3;
         while(urlQueue.URLexecuted < maxFileNum) {
+        	int size = urlQueue.getSize();
         	// keep waiting...
-            if(urlQueue.isEmpty()) {
+            if(size == 0) {
             	try{
-            		Thread.sleep(30000);      // if queue is empty, wait five more seconds to see whether more links are coming
+            		Thread.sleep(10000);      // if queue is empty, wait five more seconds to see whether more links are coming
             	} catch (InterruptedException e){
             		e.printStackTrace();
             	}
-            	System.out.println("Queue size: " + urlQueue.getSize());
-            	if(urlQueue.isEmpty()) break;
+            	System.out.println("Empty Queue detected ---> Now Queue size: " + size);
+            	if(urlQueue.isEmpty()) EXIT--;
+            	if(EXIT == 0) break;
+            } else if(size % 100 == 0) {
+            	log.info("urlQueue size: " + size);
+            	try{
+            		Thread.sleep(3000);      // if queue is empty, wait five more seconds to see whether more links are coming
+            	} catch (InterruptedException e){
+            		e.printStackTrace();
+            	}
+            } else {
+            	EXIT = 3;
             }
         }
         

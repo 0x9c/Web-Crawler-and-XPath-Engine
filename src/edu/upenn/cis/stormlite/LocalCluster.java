@@ -67,7 +67,7 @@ public class LocalCluster implements Runnable {
 	
 	ObjectMapper mapper = new ObjectMapper();
 	
-	ExecutorService executor = Executors.newFixedThreadPool(5);//creating a pool of 5 threads  
+	ExecutorService executor = Executors.newFixedThreadPool(70);//creating a pool of 70 threads  
 	Queue<Runnable> taskQueue = new ConcurrentLinkedQueue<Runnable>();
 	
 

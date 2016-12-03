@@ -100,7 +100,7 @@ public class MatchBolt implements IRichBolt{
 		List<String> linklist = (List<String>) input.getObjectByField("URLStream");
 		collector.emit(new Values<Object>(linklist));
 		
-		log.info("TYPE: " + type);
+		log.debug("TYPE: " + type);
 		if(!type.contains("xml")) return;
 		List<Channel> channels = dbStore.getAllChannels();
 		String[] xpaths = new String[channels.size()];
