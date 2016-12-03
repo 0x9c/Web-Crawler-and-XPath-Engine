@@ -119,7 +119,7 @@ public class XPathCrawler {
         
         builder.setBolt(DOWNLOAD_BOLT, boltB, 10).shuffleGrouping(CRAWLER_BOLT);
         //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 10).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 40).shuffleGrouping(DOWNLOAD_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();
