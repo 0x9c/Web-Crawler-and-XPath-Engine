@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.apache.log4j.Logger;
+import org.jsoup.Connection;
 import org.jsoup.Connection.Response;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -77,7 +78,9 @@ public class CrawlerBolt implements IRichBolt{
 	public void execute(Tuple input) {
 		String curURL = input.getStringByField("URL");
 		try {
-			Response rep = Jsoup.connect(curURL).header("User-Agent", "cis455crawler").execute();
+			Connection conn = Jsoup.connect(curURL);
+			conn.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36");
+			Response rep = conn.header("User-Agent", "cis455crawler").execute();
 			Document doc = rep.parse();
 			String contentType = rep.contentType();
 			collector.emit(new Values<Object>(curURL, doc, contentType));

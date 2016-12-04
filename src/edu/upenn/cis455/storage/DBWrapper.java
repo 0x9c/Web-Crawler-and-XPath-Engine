@@ -229,8 +229,8 @@ public class DBWrapper {
 	public synchronized void putVisitedURL(VisitedURL visitedURL) {
 		synchronized(visitedURLIndex) {
 			visitedURLIndex.put(visitedURL);
-			sync();
 		}
+		sync();
 	}
 	
 	public Long getVisitedTime(String url) {
@@ -249,7 +249,6 @@ public class DBWrapper {
 			v.setLastVisited(lastVisited);
 		}
 		putVisitedURL(v);
-		sync();
 	}
 	
 	public long getVisitedSize(){
@@ -276,8 +275,8 @@ public class DBWrapper {
 	public void putFrontierQueue(FrontierQueue queue){
 		synchronized(frontierQueueIndex) {
 			frontierQueueIndex.put(queue);
-			sync();
 		}
+		sync();
 	}
 	
 	public String pollFromFrontierQueue(){
@@ -314,8 +313,8 @@ public class DBWrapper {
 	public void putRobotMap(RobotMap RobotMap) {
 		synchronized(RobotMapIndex) {
 			RobotMapIndex.put(RobotMap);
-			sync();
 		}
+		sync();
 	}
 	
 	public void putRobotMap(String hostname, String url) {
@@ -323,7 +322,6 @@ public class DBWrapper {
 		if(v == null) {
 			v = new RobotMap(hostname, url);
 			putRobotMap(v);
-			sync();
 		} 
 	}
 
@@ -340,8 +338,9 @@ public class DBWrapper {
 	}
 	
 	public void setRobotLastVisited(String hostname){
-		getRobotMap(hostname).setLastVisited();
-		sync();
+		RobotMap v = getRobotMap(hostname);
+		v.setLastVisited();
+		putRobotMap(v);
 	}
 	
 	public long getRobotMapSize(){

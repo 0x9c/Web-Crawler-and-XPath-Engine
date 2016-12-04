@@ -116,12 +116,12 @@ public class XPathCrawler {
         
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout(URL_SPOUT, spout, 10);
-        builder.setBolt(CRAWLER_BOLT, boltA, 10).fieldsGrouping(URL_SPOUT, new Fields("URL"));
+        builder.setSpout(URL_SPOUT, spout, 5);
+        builder.setBolt(CRAWLER_BOLT, boltA, 5).fieldsGrouping(URL_SPOUT, new Fields("URL"));
         
-        builder.setBolt(DOWNLOAD_BOLT, boltB, 20).shuffleGrouping(CRAWLER_BOLT);
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 10).shuffleGrouping(CRAWLER_BOLT);
         //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 100).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 50).shuffleGrouping(DOWNLOAD_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();
