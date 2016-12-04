@@ -85,7 +85,7 @@ public class DownloadBolt implements IRichBolt{
 		PageDownloader.download(url, doc, type);
 		
 //		synchronized(urlQueue) {
-			urlQueue.visitedURLs.put(url, RobotCache.getLastVisited(url));
+			urlQueue.putIntoVisitedURL(url, RobotCache.getLastVisited(url));
 			int executedSize = urlQueue.addExecutedSize();
 			log.info("----> " + url + ": Downloading");
 			log.info("size: " + doc.toString().length());

@@ -183,6 +183,118 @@ public class DBWrapper {
 		return res;
 	}
 	
+	/* Related Method for OutLinks */
+	
+	public OutLinks getOutLinks(String url) {
+		PrimaryIndex<String, OutLinks> outLinksIndex = store.getPrimaryIndex(String.class, OutLinks.class);
+		return outLinksIndex.get(url);
+	}
+	
+	public void putOutLinks(OutLinks outlinks) {
+		PrimaryIndex<String, OutLinks> outLinksIndex = store.getPrimaryIndex(String.class, OutLinks.class);
+		outLinksIndex.put(outlinks);
+		sync();
+	}
+	
+	public List<String> getOutLinksList(String url){
+		OutLinks outlinks = getOutLinks(url);
+		return outlinks.getLinks();
+	}
+	
+	public void addOutLinks(String url, String link) {
+		OutLinks outlinks = getOutLinks(url);
+		if(outlinks == null) {
+			outlinks = new OutLinks(url);
+		}
+		outlinks.addLinks(link);
+		putOutLinks(outlinks);
+	}
+	
+	/* Related Method for VisitedURLs */
+	
+	public VisitedURL getVisitedURL(String url) {
+		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+		return visitedURLIndex.get(url);
+	}
+	
+	public Long getVisitedTime(String url) {
+		VisitedURL v = getVisitedURL(url);
+		if(v == null) return Calendar.getInstance().getTimeInMillis();
+		return v.getLastVisited();
+	}
+	
+	public void putVisitedURL(VisitedURL visitedURL) {
+		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+		visitedURLIndex.put(visitedURL);
+		sync();
+	}
+
+	public void putVisitedURL(String url, Long lastVisited) {
+		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+		VisitedURL v = getVisitedURL(url);
+		if(v == null) {
+			v = new VisitedURL(url, lastVisited);
+		} else {
+			v.setLastVisited(lastVisited);
+		}
+		putVisitedURL(v);
+		sync();
+	}
+	
+	public long getVisitedSize(){
+		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+		return visitedURLIndex.count();
+	}
+	
+	public boolean visitedURLcontains(String url) {
+		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+		return visitedURLIndex.contains(url);
+	}
+	
+	
+	/* Related Method for FrontierQueue */
+	public FrontierQueue getFrontierQueue() {
+		PrimaryIndex<String, FrontierQueue> frontierQueueIndex = store.getPrimaryIndex(String.class, FrontierQueue.class);
+		FrontierQueue queue = frontierQueueIndex.get("FrontierQueue");
+		if(queue == null) {
+			queue = new FrontierQueue();
+			putFrontierQueue(queue);
+		}
+		return queue;
+	}
+	
+	public void putFrontierQueue(FrontierQueue queue){
+		PrimaryIndex<String, FrontierQueue> frontierQueueIndex = store.getPrimaryIndex(String.class, FrontierQueue.class);
+		frontierQueueIndex.put(queue);
+		sync();
+	}
+	
+	public String pollFromFrontierQueue(){
+		FrontierQueue queue = getFrontierQueue();
+		String url = queue.pollQueue();
+		putFrontierQueue(queue);
+		return url;
+	}
+	
+	public void addIntoFrontierQueue(String url){
+		FrontierQueue queue = getFrontierQueue();
+		queue.addQueue(url);
+		putFrontierQueue(queue);
+	}
+	
+	public int getFrontierQueueSize() {
+		FrontierQueue queue = getFrontierQueue();
+		int size = queue.getSize();
+		return size;
+	}
+	
+	public boolean isEmptyFrontierQueue() {
+		return getFrontierQueueSize() == 0;
+	}
+	
+	
+	
+	
 	public static void main(String[] args){
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
 //		db.putChannel("sports", "/rss/channel");

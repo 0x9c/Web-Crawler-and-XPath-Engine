@@ -94,7 +94,7 @@ public class FilterBolt implements IRichBolt{
 					if(!urlQueue.filter(link)) continue;
 					
 					urlQueue.pushURL(link);
-					urlQueue.visitedURLs.put(link, RobotCache.getLastVisited(link));
+					urlQueue.putIntoVisitedURL(link, RobotCache.getLastVisited(link));
 					log.info(link + " --> pushed into queue");
 //				}
 			} 

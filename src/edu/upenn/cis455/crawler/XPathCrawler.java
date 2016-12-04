@@ -69,7 +69,7 @@ public class XPathCrawler {
 				}
 				if(!urlQueue.filter(curURL)) continue;
 				PageDownloader.download(curURL);
-				urlQueue.visitedURLs.put(curURL, RobotCache.getLastVisited(curURL));
+				urlQueue.putIntoVisitedURL(curURL, RobotCache.getLastVisited(curURL));
 				size++;
 				if(size >= maxFileNum) break;
 				System.out.println(curURL + ": Downloading");
@@ -87,7 +87,7 @@ public class XPathCrawler {
 			}
 			System.out.println(size);
 		}
-		System.out.println(urlQueue.visitedURLs.size());
+		System.out.println(urlQueue.getVisitedURLSize());
 		
 	}
 	
@@ -141,7 +141,7 @@ public class XPathCrawler {
         int targetExit = 100000;
         int EXIT = targetExit;
         
-        while(urlQueue.URLexecuted < maxFileNum) {
+        while(urlQueue.getExecutedSize() < maxFileNum) {
         	int size = urlQueue.getSize();
         	// keep waiting...
             if(size == 0) {
