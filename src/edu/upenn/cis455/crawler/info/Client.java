@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
@@ -23,7 +24,18 @@ import java.util.regex.Pattern;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import org.apache.commons.httpclient.methods.HeadMethod;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHeader;
 import org.apache.log4j.Logger;
 
 import edu.upenn.cis.storm.DownloadBolt;
@@ -39,10 +51,13 @@ public class Client {
 	private String hostName;
 	private String path;
 	private int portNumber;
-	private int contentLength;
+	private long contentLength;
 	private String contentType = "text/html";
 	private long last_modified;
 	static Logger log = Logger.getLogger(Client.class);
+	
+	public static final int HTTP_TIMEOUT = 60000;
+	public static final int READ_TIMEOUT = 60000;
 	
 	public Client(String url){
 		this.url = url;
@@ -62,11 +77,18 @@ public class Client {
 		String method = isGET ? "GET" : "HEAD";
 		
 		if(url.startsWith("https")) {
+			HttpsURLConnection c = null;
+			
 			try{
 				URL httpsURL = new URL(url);
-				HttpsURLConnection c = (HttpsURLConnection)httpsURL.openConnection();
+				if(httpsURL.getHost() == null) return null;
+				
+				c = (HttpsURLConnection)httpsURL.openConnection();
 				c.setRequestProperty("User-Agent", "cis455crawler");
 				c.setRequestProperty("Connection", "close");
+				if(!isGET) c.setRequestMethod("HEAD");
+				c.setConnectTimeout(HTTP_TIMEOUT);
+				c.setReadTimeout(READ_TIMEOUT);
 				c.connect();
 				contentLength = c.getContentLength();
 				contentType = c.getContentType();
@@ -79,64 +101,34 @@ public class Client {
 			} catch(IOException e){
 				log.error(url);
 				log.error(ExceptionUtils.getStackTrace(e));
+			} finally {
+				if (null != c){
+					try {
+						if(isGET) c.getInputStream().close();
+						c.disconnect();
+					} catch (IOException e) {
+						StringWriter sw = new StringWriter();
+						PrintWriter pw = new PrintWriter(sw);
+						e.printStackTrace(pw);
+						log.error(sw.toString()); // stack trace as a string
+					}
+				}
 			}
+			
 		} else if(url.startsWith("http")){
+			HttpURLConnection c = null;
+			
 			try{
-				/* Sending HEAD or GET Request */
-//				Socket socket = new Socket(InetAddress.getByName(hostName), portNumber);
-//				PrintWriter output = new PrintWriter(socket.getOutputStream());
-//				output.println(method + " " + path + " HTTP/1.1");
-//				output.println("Host: "+ hostName);
-//				output.println("User-Agent: cis455crawler");  /* Header must be added to avoid serious crawling problem */
-//				output.println("Connection: close");  // connection close header to close socket immediately when reader completed, otherwise bufferedReader might be waiting for timeout
-//				output.println("");
-//				output.flush();
-//				
-//				/* Reading incoming Response */
-//				BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//				
-//				String s;
-//				s = br.readLine();
-//				if(processInitialLine(s)){
-//					// To check if the response valid 
-//					while((s = br.readLine()) != null) {
-//						if(s.equals("")) break;  // The header lines end.
-//						Pattern r = Pattern.compile("(.*?): (.*)");
-//						Matcher m = r.matcher(s);
-//						if(m.find()){
-//							if(m.group(1).toLowerCase().equals("content-length")){
-//								contentLength = Integer.parseInt(m.group(2));
-//							}
-//							if(m.group(1).toLowerCase().equals("content-type")){
-//								contentType = m.group(2);
-//							}
-//							if(m.group(1).toLowerCase().equals("last-modified")){
-//								String date = m.group(2);
-//								SimpleDateFormat f = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
-//								Date d = f.parse(date);
-//								last_modified = d.getTime();
-//							}
-//						}
-//					}
-//					if(isGET){
-//						StringBuilder sb = new StringBuilder();
-//						while((s = br.readLine()) != null){
-//							sb.append(s);
-//							sb.append("\n");
-//						}
-//						String responseBody = sb.toString();
-//						socket.close();
-//						return new ByteArrayInputStream(responseBody.getBytes());
-//					} else {
-//						socket.close();
-//						return null;
-//					}
-//				}
-				
 				URL httpURL = new URL(url);
-				HttpURLConnection c = (HttpURLConnection)httpURL.openConnection();
+				if(httpURL.getHost() == null) return null;
+				
+				c = (HttpURLConnection)httpURL.openConnection();
 				c.setRequestProperty("User-Agent", "cis455crawler");
 				c.setRequestProperty("Connection", "close");
+				if(!isGET) c.setRequestMethod("HEAD");
+				c.setConnectTimeout(HTTP_TIMEOUT);
+				c.setReadTimeout(READ_TIMEOUT);
+				
 				c.connect();
 				contentLength = c.getContentLength();
 				contentType = c.getContentType();
@@ -149,7 +141,19 @@ public class Client {
 			} catch (IOException e) {
 				log.error(url);
 				log.error(ExceptionUtils.getStackTrace(e));
-			} 
+			} finally {
+				if (null != c){
+					try {
+						if(isGET) c.getInputStream().close();
+						c.disconnect();
+					} catch (IOException e) {
+						StringWriter sw = new StringWriter();
+						PrintWriter pw = new PrintWriter(sw);
+						e.printStackTrace(pw);
+						log.error(sw.toString()); // stack trace as a string
+					}
+				}
+			}
 		} 
 		
 		return null;
@@ -175,6 +179,7 @@ public class Client {
 	}
 	
 	public boolean isValidType(){
+		if(contentType == null) return false;
 		if(contentType.startsWith("text/html")) return true;
 		if(contentType.startsWith("application/xml")) return true;
 		if(contentType.startsWith("text/xml")) return true;
@@ -199,7 +204,7 @@ public class Client {
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public int getContentLength() {
+	public long getContentLength() {
 		return contentLength;
 	}
 	public void setContentLength(int contentLength) {

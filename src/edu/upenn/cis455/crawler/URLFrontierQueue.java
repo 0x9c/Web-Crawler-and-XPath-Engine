@@ -94,9 +94,9 @@ public class URLFrontierQueue {
 		//visitedURLs.put(url, lastModified);
 	}
 	
-	public void setLastModifiedWhenDownloading(String url){
-		Client client = new Client(url);
-		long lastModified = client.getLast_modified();
-		db.putVisitedURL(url, lastModified);
-	}
+//	public void setLastModifiedWhenDownloading(String url){
+//		Client client = new Client(url);
+//		long lastModified = client.getLast_modified();
+//		db.putVisitedURL(url, lastModified);
+//	}
 }

@@ -4,18 +4,19 @@ import java.util.Calendar;
 import java.util.Hashtable;
 import java.util.concurrent.ConcurrentHashMap;
 
-import edu.upenn.cis455.crawler.info.Robot;
 import edu.upenn.cis455.crawler.info.URLInfo;
+import edu.upenn.cis455.storage.DBWrapper;
 
 public class RobotCache {
-	public static ConcurrentHashMap<String, Robot> robots = new ConcurrentHashMap<>();
+	//public static ConcurrentHashMap<String, Robot> robots = new ConcurrentHashMap<>();
+	private static DBWrapper db = DBWrapper.getInstance(XPathCrawler.dbPath);
 	
 	public static void addRobot(String url) {
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
-		if(!robots.containsKey(hostName)){
-			Robot robot = new Robot(url);
-			robots.put(hostName, robot);
+		String protocol = urlinfo.getProtocol();
+		if(!db.RobotMapContains(hostName)){
+			db.putRobotMap(hostName, url);
 		}
 	}
 	
@@ -23,21 +24,21 @@ public class RobotCache {
 		addRobot(url);
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
-		Robot robot = robots.get(hostName);
-		return robot.isURLValid(url);
+		return db.getRobotIsURLValid(hostName, url);
 	}
 	
 	public static boolean checkDelay(String url){
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
-		if(robots.containsKey(hostName)) {    // not having hostName means even haven't crawled before 
-			Robot robot = robots.get(hostName);
-			if(robot.getCrawlDelay() == 0) return true;
+		if(hostName == null) return false;
+		
+		if(db.RobotMapContains(hostName)) {    // not having hostName means even haven't crawled before 
+			if(db.getRobotCrawlDelay(hostName) == 0) return true;
 			Calendar cal = Calendar.getInstance();
-			long lastVisited = robot.getLastVisited();
+			long lastVisited = db.getRobotLastVisited(hostName);
 			long currentVisiting = cal.getTime().getTime();
-			if(currentVisiting - lastVisited >= robot.getCrawlDelay() * 1000 ) {  // crawl delay in seconds actually
-				robot.setLastVisited();
+			if(currentVisiting - lastVisited >= db.getRobotCrawlDelay(hostName) * 1000 ) {  // crawl delay in seconds actually
+				db.setRobotLastVisited(hostName);
 				return true;
 			} else {
 				return false;
@@ -51,18 +52,15 @@ public class RobotCache {
 	public static void setCurrentTime(String url) {
 		URLInfo urlinfo = new URLInfo(url);
 		String hostname = urlinfo.getHostName();
-		Robot robot = robots.get(hostname);
-		if(robot == null) {
+		if(!db.RobotMapContains(hostname)) {
 			addRobot(url);
-			robot = robots.get(hostname);
 		}
-		robot.setLastVisited();
+		db.setRobotLastVisited(hostname);
 	}
 	
 	public static long getLastVisited(String url) {
 		URLInfo urlinfo = new URLInfo(url);
 		String hostname = urlinfo.getHostName();
-		Robot robot = robots.get(hostname);
-		return robot.getLastVisited();
+		return db.getRobotLastVisited(hostname);
 	}
 }

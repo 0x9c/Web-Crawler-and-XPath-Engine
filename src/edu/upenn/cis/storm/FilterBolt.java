@@ -90,13 +90,11 @@ public class FilterBolt implements IRichBolt{
 
 			if(RobotCache.isValid(link)) {
 				RobotCache.setCurrentTime(link);  // HEAD REQUEST set the last visited time
-//				synchronized(urlQueue) {
-					if(!urlQueue.filter(link)) continue;
-					
-					urlQueue.pushURL(link);
-					urlQueue.putIntoVisitedURL(link, RobotCache.getLastVisited(link));
-					log.info(link + " --> pushed into queue");
-//				}
+				if(!urlQueue.filter(link)) continue;
+				
+				urlQueue.pushURL(link);
+				urlQueue.putIntoVisitedURL(link, RobotCache.getLastVisited(link));
+				log.info(link + " --> pushed into queue");	
 			} 
 		}
 	}

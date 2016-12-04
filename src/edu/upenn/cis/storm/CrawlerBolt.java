@@ -1,6 +1,8 @@
 package edu.upenn.cis.storm;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -81,7 +83,11 @@ public class CrawlerBolt implements IRichBolt{
 			collector.emit(new Values<Object>(curURL, doc, contentType));
 			
 		} catch (IOException e) {
-			e.printStackTrace();
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			log.error(curURL);
+			log.error(sw.toString()); // stack trace as a string
 		}
 		
 	}

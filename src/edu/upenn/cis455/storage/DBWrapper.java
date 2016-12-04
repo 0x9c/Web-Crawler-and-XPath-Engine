@@ -16,7 +16,6 @@ import com.sleepycat.persist.PrimaryIndex;
 import com.sleepycat.persist.StoreConfig;
 
 import edu.upenn.cis455.storage.User;
-
 /**
  * Basic class to connect Berkeley DB, including add and get User, Page, etc. from Database.
  * @author cis555
@@ -30,6 +29,11 @@ public class DBWrapper {
 	private static EntityStore store;
 	
 	private static DBWrapper DBinstance = null;
+	
+	PrimaryIndex<String, OutLinks> outLinksIndex;
+	PrimaryIndex<String, VisitedURL> visitedURLIndex;
+	PrimaryIndex<String, FrontierQueue> frontierQueueIndex;
+	PrimaryIndex<String, RobotMap> RobotMapIndex;
 	
 	/* TODO: write object store wrapper for BerkeleyDB */
 	private DBWrapper(String envDirectory){
@@ -56,6 +60,12 @@ public class DBWrapper {
 			storeConfig.setAllowCreate(true);
 			storeConfig.setTransactional(true);
 			store = new EntityStore(myEnv,"DBEntityStore",storeConfig);
+			
+			outLinksIndex = store.getPrimaryIndex(String.class, OutLinks.class);
+			visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
+			frontierQueueIndex = store.getPrimaryIndex(String.class, FrontierQueue.class);
+			RobotMapIndex = store.getPrimaryIndex(String.class, RobotMap.class);
+			
 		}
 		catch(DatabaseException e)
 		{
@@ -185,13 +195,11 @@ public class DBWrapper {
 	
 	/* Related Method for OutLinks */
 	
-	public OutLinks getOutLinks(String url) {
-		PrimaryIndex<String, OutLinks> outLinksIndex = store.getPrimaryIndex(String.class, OutLinks.class);
+	public synchronized OutLinks getOutLinks(String url) {
 		return outLinksIndex.get(url);
 	}
 	
-	public void putOutLinks(OutLinks outlinks) {
-		PrimaryIndex<String, OutLinks> outLinksIndex = store.getPrimaryIndex(String.class, OutLinks.class);
+	public synchronized void putOutLinks(OutLinks outlinks) {
 		outLinksIndex.put(outlinks);
 		sync();
 	}
@@ -213,8 +221,16 @@ public class DBWrapper {
 	/* Related Method for VisitedURLs */
 	
 	public VisitedURL getVisitedURL(String url) {
-		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
-		return visitedURLIndex.get(url);
+		synchronized(visitedURLIndex) {
+			return visitedURLIndex.get(url);
+		}
+	}
+	
+	public synchronized void putVisitedURL(VisitedURL visitedURL) {
+		synchronized(visitedURLIndex) {
+			visitedURLIndex.put(visitedURL);
+			sync();
+		}
 	}
 	
 	public Long getVisitedTime(String url) {
@@ -223,14 +239,9 @@ public class DBWrapper {
 		return v.getLastVisited();
 	}
 	
-	public void putVisitedURL(VisitedURL visitedURL) {
-		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
-		visitedURLIndex.put(visitedURL);
-		sync();
-	}
+
 
 	public void putVisitedURL(String url, Long lastVisited) {
-		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
 		VisitedURL v = getVisitedURL(url);
 		if(v == null) {
 			v = new VisitedURL(url, lastVisited);
@@ -242,31 +253,31 @@ public class DBWrapper {
 	}
 	
 	public long getVisitedSize(){
-		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
 		return visitedURLIndex.count();
 	}
 	
 	public boolean visitedURLcontains(String url) {
-		PrimaryIndex<String, VisitedURL> visitedURLIndex = store.getPrimaryIndex(String.class, VisitedURL.class);
 		return visitedURLIndex.contains(url);
 	}
 	
 	
 	/* Related Method for FrontierQueue */
 	public FrontierQueue getFrontierQueue() {
-		PrimaryIndex<String, FrontierQueue> frontierQueueIndex = store.getPrimaryIndex(String.class, FrontierQueue.class);
-		FrontierQueue queue = frontierQueueIndex.get("FrontierQueue");
-		if(queue == null) {
-			queue = new FrontierQueue();
-			putFrontierQueue(queue);
+		synchronized(frontierQueueIndex) {
+			FrontierQueue queue = frontierQueueIndex.get("FrontierQueue");
+			if(queue == null) {
+				queue = new FrontierQueue();
+				putFrontierQueue(queue);
+			}
+			return queue;
 		}
-		return queue;
 	}
 	
 	public void putFrontierQueue(FrontierQueue queue){
-		PrimaryIndex<String, FrontierQueue> frontierQueueIndex = store.getPrimaryIndex(String.class, FrontierQueue.class);
-		frontierQueueIndex.put(queue);
-		sync();
+		synchronized(frontierQueueIndex) {
+			frontierQueueIndex.put(queue);
+			sync();
+		}
 	}
 	
 	public String pollFromFrontierQueue(){
@@ -292,19 +303,61 @@ public class DBWrapper {
 		return getFrontierQueueSize() == 0;
 	}
 	
+	/* Related Method for RobotMap */
+	public RobotMap getRobotMap(String hostname) {
+		synchronized(RobotMapIndex) {
+			return RobotMapIndex.get(hostname);
+		}
+
+	}
+	
+	public void putRobotMap(RobotMap RobotMap) {
+		synchronized(RobotMapIndex) {
+			RobotMapIndex.put(RobotMap);
+			sync();
+		}
+	}
+	
+	public void putRobotMap(String hostname, String url) {
+		RobotMap v = getRobotMap(hostname);
+		if(v == null) {
+			v = new RobotMap(hostname, url);
+			putRobotMap(v);
+			sync();
+		} 
+	}
+
+	public int getRobotCrawlDelay(String hostname) {
+		return getRobotMap(hostname).getCrawlDelay();
+	}
+	
+	public boolean getRobotIsURLValid(String hostname, String url) {
+		return getRobotMap(hostname).isURLValid(url);
+	}
+	
+	public long getRobotLastVisited(String hostname){
+		return getRobotMap(hostname).getLastVisited();
+	}
+	
+	public void setRobotLastVisited(String hostname){
+		getRobotMap(hostname).setLastVisited();
+		sync();
+	}
+	
+	public long getRobotMapSize(){
+		return RobotMapIndex.count();
+	}
+	
+	public boolean RobotMapContains(String hostName) {
+		return RobotMapIndex.contains(hostName);
+	}
+	
 	
 	
 	
 	public static void main(String[] args){
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
-//		db.putChannel("sports", "/rss/channel");
-//		Channel c = db.getChannel("sports");
-//		c.setXPath("channel");
-//		db.updateChannel(c);
-		
-		System.out.println(db.getAllChannels().get(0).getXPath());
+		System.out.println(db.getFrontierQueueSize());
 		
 	}
-
-
 }

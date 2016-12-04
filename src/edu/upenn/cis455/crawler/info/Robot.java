@@ -32,6 +32,7 @@ public class Robot {
 	int crawlDelay = 0;
 	long lastVisited = 0;
 	static Logger log = Logger.getLogger(Robot.class);
+
 	
 	public Robot(String url){		
 		try {

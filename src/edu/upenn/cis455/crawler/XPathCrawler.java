@@ -104,7 +104,9 @@ public class XPathCrawler {
 	    
         Config config = new Config();
       
-        this.urlQueue.pushURL(startURL);
+        DBWrapper db = DBWrapper.getInstance("./dtianx");
+		if(db.getFrontierQueueSize() == 0)
+        	this.urlQueue.pushURL(startURL);
         
         URLSpout spout = new URLSpout();
         CrawlerBolt boltA = new CrawlerBolt();
