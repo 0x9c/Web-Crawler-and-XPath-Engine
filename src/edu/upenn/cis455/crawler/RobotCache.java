@@ -15,6 +15,8 @@ public class RobotCache {
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
 		String protocol = urlinfo.getProtocol();
+		if(hostName == null) return;
+		
 		if(!db.RobotMapContains(hostName)){
 			db.putRobotMap(hostName, url);
 		}
@@ -24,13 +26,15 @@ public class RobotCache {
 		addRobot(url);
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
+		if(hostName == null) return false;
+		
 		return db.getRobotIsURLValid(hostName, url);
 	}
 	
 	public static boolean checkDelay(String url){
 		URLInfo urlinfo = new URLInfo(url);
 		String hostName = urlinfo.getHostName();
-		if(hostName == null) return false;
+		if(hostName == null) return true;
 		
 		if(db.RobotMapContains(hostName)) {    // not having hostName means even haven't crawled before 
 			if(db.getRobotCrawlDelay(hostName) == 0) return true;
