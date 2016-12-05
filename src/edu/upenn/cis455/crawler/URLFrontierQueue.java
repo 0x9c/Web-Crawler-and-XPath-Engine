@@ -39,6 +39,8 @@ public class URLFrontierQueue {
 	
 	public URLFrontierQueue(int maxSize){
 		this.maxSize = maxSize;
+		queue = new LinkedBlockingQueue<String>();
+		nextQueue = new LinkedBlockingQueue<String>();
 	}
 	
 	private synchronized void fetchFrontierQueueFromDisk(){
