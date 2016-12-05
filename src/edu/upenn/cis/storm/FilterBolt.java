@@ -95,14 +95,20 @@ public class FilterBolt implements IRichBolt{
 			link = removeHashTagInURL(link);
 			if(!RobotCache.checkDelay(link)){
 				linksToCheck.offer(link);
+				log.info(link + " ******* Delayed");
 				continue;
 			}
 			collector.emit(new Values<Object>(link));
 			
 			step4 = System.currentTimeMillis();
 			if(step4 - step3 > max) max = step4 - step3; 
+			if(step4 - start > 25000) {
+				log.info(url + " -->  costs so much time, break out loop Mandatorily");
+				break;
+			}
 		}
-		log.info(url + " <----> Emit Finished, longest Time: " + max + "ms");	
+		long end = System.currentTimeMillis();
+		log.info(url + " <----> Emit Finished, longest Time: " + max + "ms " + " whole FilterBolt: " + (end - start) + " ms");	
 	}
 	
     /**
