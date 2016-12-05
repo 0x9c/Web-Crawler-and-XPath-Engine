@@ -97,9 +97,9 @@ public class FilterBolt implements IRichBolt{
 			
 			String link = linksToCheck.poll();
 			link = removeHashTagInURL(link);
-			if(!RobotCache.checkDelay(link)){
-				linksToCheck.offer(link);
-				log.info(link + " ******* Delayed");
+			if(!RobotCache.checkDelay(link)) {       
+				// linksToCheck.offer(link);    //  Once delay detected, avoid this host for better crawling performance.
+				log.debug(link + " ******* Delayed");
 				continue;
 			}
 			collector.emit(new Values<Object>(link));
