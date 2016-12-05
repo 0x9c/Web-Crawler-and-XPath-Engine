@@ -76,6 +76,8 @@ public class DownloadBolt implements IRichBolt{
      */
 	@Override
 	public void execute(Tuple input) {
+		long start = System.currentTimeMillis();
+		
 		Document doc = (Document)input.getObjectByField("document");
 		String type = input.getStringByField("type");
 		String url = input.getStringByField("url");
@@ -98,7 +100,13 @@ public class DownloadBolt implements IRichBolt{
 			linklist.add(link.attr("abs:href"));
 		}
 		
+		long workTime = System.currentTimeMillis();
+		
 		collector.emit(new Values<Object>(url, type, linklist));
+		
+		long end = System.currentTimeMillis();
+		log.info(url + " downloaded ---> working Time: " + (workTime - start) + " ms " 
+				+ "emit time: " + (end - workTime) + " ms");
 	}
 	
     /**

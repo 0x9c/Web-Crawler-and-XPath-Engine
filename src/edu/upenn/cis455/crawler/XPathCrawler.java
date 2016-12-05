@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -87,13 +89,15 @@ public class XPathCrawler {
 					} 
 				}
 			} catch (Exception e) {
-				System.out.println("Error URL: " + curURL);
-				System.out.println(e.getMessage());
+				StringWriter sw = new StringWriter();
+				PrintWriter pw = new PrintWriter(sw);
+				e.printStackTrace(pw);
+				log.error(curURL);
+				log.error(sw.toString()); // stack trace as a string
+				
 				continue;   // skip this URL
 			}
-			System.out.println(size);
 		}
-		System.out.println(urlQueue.getVisitedURLSize());
 		
 	}
 	
@@ -129,8 +133,8 @@ public class XPathCrawler {
         
         builder.setBolt(DOWNLOAD_BOLT, boltB, 4).shuffleGrouping(CRAWLER_BOLT);
         //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(RECORD_BOLT, boltE, 200).shuffleGrouping(FILTER_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 15).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(RECORD_BOLT, boltE, 150).shuffleGrouping(FILTER_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();

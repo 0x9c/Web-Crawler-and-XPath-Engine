@@ -81,7 +81,7 @@ public class RecordBolt implements IRichBolt{
 					+ "step2: " + (step2-step1) + "ms " + "step3: " + (step3-step2) + "ms " + 
 					"step4: " + (step4-step3) + "ms " + "step5: " + (step5-step4) + "ms");
 		} else {
-			log.info(link + " --> Not Valid on this Host");
+			log.debug(link + " --> Not Valid on this Host");
 		}
 	}
 	

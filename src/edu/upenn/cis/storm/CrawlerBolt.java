@@ -73,6 +73,8 @@ public class CrawlerBolt implements IRichBolt{
      */
 	@Override
 	public void execute(Tuple input) {
+		long start = System.currentTimeMillis();
+		
 		String curURL = input.getStringByField("URL");
 		Connection conn = null;
 		try {
@@ -81,8 +83,14 @@ public class CrawlerBolt implements IRichBolt{
 			Response rep = conn.header("User-Agent", "cis455crawler").execute();
 			Document doc = rep.parse();
 			String contentType = rep.contentType();
+			
+			long workTime = System.currentTimeMillis();
+			
 			collector.emit(new Values<Object>(curURL, doc, contentType));
 			
+			long end = System.currentTimeMillis();
+			log.info(curURL + " crawled ---> working Time: " + (workTime - start) + " ms " 
+					+ "emit time: " + (end - workTime) + " ms");
 		} catch (IOException e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
