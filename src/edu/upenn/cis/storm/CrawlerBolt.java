@@ -21,9 +21,6 @@ import edu.upenn.cis.stormlite.routers.IStreamRouter;
 import edu.upenn.cis.stormlite.tuple.Fields;
 import edu.upenn.cis.stormlite.tuple.Tuple;
 import edu.upenn.cis.stormlite.tuple.Values;
-import edu.upenn.cis455.crawler.PageDownloader;
-import edu.upenn.cis455.crawler.Processor;
-import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.crawler.URLFrontierQueue;
 import edu.upenn.cis455.crawler.XPathCrawler;
 
@@ -77,8 +74,9 @@ public class CrawlerBolt implements IRichBolt{
 	@Override
 	public void execute(Tuple input) {
 		String curURL = input.getStringByField("URL");
+		Connection conn = null;
 		try {
-			Connection conn = Jsoup.connect(curURL);
+			conn = Jsoup.connect(curURL);
 			conn.userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36");
 			Response rep = conn.header("User-Agent", "cis455crawler").execute();
 			Document doc = rep.parse();
@@ -91,7 +89,8 @@ public class CrawlerBolt implements IRichBolt{
 			e.printStackTrace(pw);
 			log.error(curURL);
 			log.error(sw.toString()); // stack trace as a string
-		}
+		} 
+		
 		
 	}
 	

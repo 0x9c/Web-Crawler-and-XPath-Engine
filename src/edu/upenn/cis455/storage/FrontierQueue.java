@@ -31,4 +31,8 @@ public class FrontierQueue {
 	public int getSize(){
 		return this.queue.size();
 	}
+	
+	public boolean isEmpty(){
+		return this.queue.size() == 0;
+	}
 }

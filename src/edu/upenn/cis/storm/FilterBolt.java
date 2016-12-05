@@ -30,7 +30,7 @@ import edu.upenn.cis455.crawler.XPathCrawler;
 public class FilterBolt implements IRichBolt{
 	static Logger log = Logger.getLogger(FilterBolt.class);
 	
-	Fields schema = new Fields();
+	Fields schema = new Fields("extractedLink");
 	
 	String executorId = UUID.randomUUID().toString();
 	
@@ -77,26 +77,32 @@ public class FilterBolt implements IRichBolt{
      */
 	@Override
 	public void execute(Tuple input) {
+		long start = System.currentTimeMillis();
 		Queue<String> linksToCheck = (Queue<String>) input.getObjectByField("URLStream");
+		String url = input.getStringByField("URL");
+		long step1 = System.currentTimeMillis();
+		urlQueue.setOutLinks(url, linksToCheck);
+		long step2 = System.currentTimeMillis();
+		log.info(url + " <----> Outlinks Recorded" + "step1: " + (step1-start) + "ms " + "step2: " + (step2-step1) + "ms");	
 		
+		long max = 0;
+		long step3 = 0;
+		long step4 = 0;
 		while(!linksToCheck.isEmpty()) {
+			step3 = System.currentTimeMillis();
+			
 			String link = linksToCheck.poll();
 			link = removeHashTagInURL(link);
-			
 			if(!RobotCache.checkDelay(link)){
 				linksToCheck.offer(link);
 				continue;
 			}
-
-			if(RobotCache.isValid(link)) {
-				RobotCache.setCurrentTime(link);  // HEAD REQUEST set the last visited time
-				if(!urlQueue.filter(link)) continue;
-				
-				urlQueue.pushURL(link);
-				urlQueue.putIntoVisitedURL(link, RobotCache.getLastVisited(link));
-				log.info(link + " --> pushed into queue");	
-			} 
+			collector.emit(new Values<Object>(link));
+			
+			step4 = System.currentTimeMillis();
+			if(step4 - step3 > max) max = step4 - step3; 
 		}
+		log.info(url + " <----> Emit Finished, longest Time: " + max + "ms");	
 	}
 	
     /**

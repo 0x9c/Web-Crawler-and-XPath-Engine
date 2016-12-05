@@ -29,6 +29,9 @@ public class RobotMap {
 	List<String> allowList = new ArrayList<String>();
 	int crawlDelay = 0;
 	long lastVisited = 0;
+	long visitedSize = 0;
+	
+	final int MAX_VISITED_SIZE_ON_HOST = 1000;
 	
 	public RobotMap() {}
 	
@@ -146,6 +149,12 @@ public class RobotMap {
 	public boolean isURLValid(String url){
 		URLInfo urlinfo = new URLInfo(url);
 		String path = urlinfo.getFilePath();
+		
+		visitedSize++;
+		if(visitedSize > MAX_VISITED_SIZE_ON_HOST) {		
+			return false;
+		}
+		
 		for(String allowpath:allowList){
 			if(allowpath.endsWith("/")){
 				//allowpath = allowpath.substring(0, allowpath.length() - 1);

@@ -14,6 +14,7 @@ import edu.upenn.cis.storm.CrawlerBolt;
 import edu.upenn.cis.storm.DownloadBolt;
 import edu.upenn.cis.storm.FilterBolt;
 import edu.upenn.cis.storm.MatchBolt;
+import edu.upenn.cis.storm.RecordBolt;
 import edu.upenn.cis.storm.URLSpout;
 import edu.upenn.cis.stormlite.Config;
 import edu.upenn.cis.stormlite.LocalCluster;
@@ -101,27 +102,30 @@ public class XPathCrawler {
 	    String DOWNLOAD_BOLT = "DOWNLOAD_BOLT";
 	    //String MATCH_BOLT = "MATCH_BOLT";
 	    String FILTER_BOLT = "FILTER_BOLT";
+	    String RECORD_BOLT = "RECORD_BOLT";
 	    
         Config config = new Config();
       
-        DBWrapper db = DBWrapper.getInstance("./dtianx");
+        DBWrapper db = DBWrapper.getInstance("dbPath");
 		if(db.getFrontierQueueSize() == 0)
         	this.urlQueue.pushURL(startURL);
         
         URLSpout spout = new URLSpout();
         CrawlerBolt boltA = new CrawlerBolt();
         DownloadBolt boltB = new DownloadBolt();
-        MatchBolt boltC = new MatchBolt();
+//        MatchBolt boltC = new MatchBolt();
         FilterBolt boltD = new FilterBolt();
+        RecordBolt boltE = new RecordBolt();
         
         TopologyBuilder builder = new TopologyBuilder();
 
-        builder.setSpout(URL_SPOUT, spout, 5);
-        builder.setBolt(CRAWLER_BOLT, boltA, 5).fieldsGrouping(URL_SPOUT, new Fields("URL"));
+        builder.setSpout(URL_SPOUT, spout, 2);
+        builder.setBolt(CRAWLER_BOLT, boltA, 2).fieldsGrouping(URL_SPOUT, new Fields("URL"));
         
-        builder.setBolt(DOWNLOAD_BOLT, boltB, 10).shuffleGrouping(CRAWLER_BOLT);
+        builder.setBolt(DOWNLOAD_BOLT, boltB, 4).shuffleGrouping(CRAWLER_BOLT);
         //builder.setBolt(MATCH_BOLT, boltC, 4).shuffleGrouping(DOWNLOAD_BOLT);
-        builder.setBolt(FILTER_BOLT, boltD, 50).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(FILTER_BOLT, boltD, 4).shuffleGrouping(DOWNLOAD_BOLT);
+        builder.setBolt(RECORD_BOLT, boltE, 200).shuffleGrouping(FILTER_BOLT);
 
         LocalCluster cluster = new LocalCluster();
         Topology topo = builder.createTopology();

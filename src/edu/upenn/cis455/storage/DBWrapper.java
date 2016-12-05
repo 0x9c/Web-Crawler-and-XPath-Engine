@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Queue;
 import java.util.TreeMap;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 import com.sleepycat.je.DatabaseException;
 import com.sleepycat.je.Environment;
@@ -15,6 +18,7 @@ import com.sleepycat.persist.EntityStore;
 import com.sleepycat.persist.PrimaryIndex;
 import com.sleepycat.persist.StoreConfig;
 
+import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.storage.User;
 /**
  * Basic class to connect Berkeley DB, including add and get User, Page, etc. from Database.
@@ -42,6 +46,7 @@ public class DBWrapper {
 		try{
 			EnvironmentConfig envConfig = new EnvironmentConfig();
 			//Create new myEnv if it does not exist
+			envConfig.setLockTimeout(500, TimeUnit.MILLISECONDS);
 			envConfig.setAllowCreate(true);
 			//Allow transactions in new myEnv
 			envConfig.setTransactional(true);
@@ -218,6 +223,19 @@ public class DBWrapper {
 		putOutLinks(outlinks);
 	}
 	
+	public void setOutLinks(String url, Queue<String> links) {
+		OutLinks outlinks = getOutLinks(url);
+		if(outlinks == null) {
+			outlinks = new OutLinks(url);
+			for(int i = 0; i < links.size(); i++) {
+				String link = links.poll();
+				outlinks.getLinks().add(link);
+				links.offer(link);
+			}
+			putOutLinks(outlinks);
+		}
+	}
+	
 	/* Related Method for VisitedURLs */
 	
 	public VisitedURL getVisitedURL(String url) {
@@ -279,16 +297,22 @@ public class DBWrapper {
 		sync();
 	}
 	
-	public String pollFromFrontierQueue(){
+	public synchronized void pollFromFrontierQueue(int num, Queue<String> memoryQueue){
 		FrontierQueue queue = getFrontierQueue();
-		String url = queue.pollQueue();
+		int count = 0;
+		while(!queue.isEmpty() && count < num) {
+			String url = queue.pollQueue();
+			memoryQueue.offer(url);
+			count++;
+		}
 		putFrontierQueue(queue);
-		return url;
 	}
 	
-	public void addIntoFrontierQueue(String url){
+	public synchronized void addIntoFrontierQueue(LinkedBlockingQueue<String> nextQueue){
 		FrontierQueue queue = getFrontierQueue();
-		queue.addQueue(url);
+		while(!nextQueue.isEmpty()) {
+			queue.addQueue(nextQueue.poll());
+		}
 		putFrontierQueue(queue);
 	}
 	
@@ -330,7 +354,10 @@ public class DBWrapper {
 	}
 	
 	public boolean getRobotIsURLValid(String hostname, String url) {
-		return getRobotMap(hostname).isURLValid(url);
+		RobotMap m = getRobotMap(hostname);
+		boolean res = m.isURLValid(url);
+		putRobotMap(m);
+		return res;
 	}
 	
 	public long getRobotLastVisited(String hostname){
@@ -344,11 +371,15 @@ public class DBWrapper {
 	}
 	
 	public long getRobotMapSize(){
-		return RobotMapIndex.count();
+		synchronized(RobotMapIndex) {
+			return RobotMapIndex.count();
+		}
 	}
 	
 	public boolean RobotMapContains(String hostName) {
-		return RobotMapIndex.contains(hostName);
+		synchronized(RobotMapIndex) {
+			return RobotMapIndex.contains(hostName);
+		}
 	}
 	
 	
@@ -357,6 +388,6 @@ public class DBWrapper {
 	public static void main(String[] args){
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
 		System.out.println(db.getFrontierQueueSize());
-		
+		System.out.println(RobotCache.isValid("https://www.facebook.com"));
 	}
 }
