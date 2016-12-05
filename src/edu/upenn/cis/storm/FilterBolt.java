@@ -90,6 +90,10 @@ public class FilterBolt implements IRichBolt{
 		long step4 = 0;
 		while(!linksToCheck.isEmpty()) {
 			step3 = System.currentTimeMillis();
+			if(step3 - start > 15000) {
+				log.info(url + " -->  costs so much time, break out loop Mandatorily");
+				break;
+			}
 			
 			String link = linksToCheck.poll();
 			link = removeHashTagInURL(link);
@@ -102,10 +106,6 @@ public class FilterBolt implements IRichBolt{
 			
 			step4 = System.currentTimeMillis();
 			if(step4 - step3 > max) max = step4 - step3; 
-			if(step4 - start > 25000) {
-				log.info(url + " -->  costs so much time, break out loop Mandatorily");
-				break;
-			}
 		}
 		long end = System.currentTimeMillis();
 		log.info(url + " <----> Emit Finished, longest Time: " + max + "ms " + " whole FilterBolt: " + (end - start) + " ms");	
