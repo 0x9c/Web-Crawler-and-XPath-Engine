@@ -1,5 +1,10 @@
 package edu.upenn.cis455.crawler;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -167,6 +172,13 @@ public class XPathCrawler {
             		e.printStackTrace();
             	}
             } else {
+            	long visitedsize = db.getVisitedSize();
+            	log.info("visitedURL SIZE -----> " + visitedsize);
+            	try{
+            		Thread.sleep(600000);      // if queue is empty, wait five more seconds to see whether more links are coming
+            	} catch (InterruptedException e){
+            		e.printStackTrace();
+            	}
             	EXIT = targetExit;
             }
         }
@@ -176,8 +188,20 @@ public class XPathCrawler {
         System.exit(0);
     }
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		PropertyConfigurator.configure("./resources/log4j.properties");
+		
+		FileReader f = null;
+		try {
+			f = new FileReader(new File("./conf/config.properties"));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		BufferedReader bf = new BufferedReader(f);
+		System.setProperty("KEY", bf.readLine());
+		System.setProperty("ID", bf.readLine());
+		
+		
 		if(args.length == 0){
 			System.out.println("You need to specify the arguments.");
 			System.out.println("name: Tianxiang Dong");

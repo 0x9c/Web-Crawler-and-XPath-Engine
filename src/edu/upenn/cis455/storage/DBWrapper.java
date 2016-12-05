@@ -1,14 +1,23 @@
 package edu.upenn.cis455.storage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 import java.util.Queue;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
 
 import com.sleepycat.je.DatabaseException;
 import com.sleepycat.je.Environment;
@@ -18,6 +27,7 @@ import com.sleepycat.persist.EntityStore;
 import com.sleepycat.persist.PrimaryIndex;
 import com.sleepycat.persist.StoreConfig;
 
+import edu.upenn.cis.storm.RecordBolt;
 import edu.upenn.cis455.crawler.RobotCache;
 import edu.upenn.cis455.storage.User;
 /**
@@ -38,6 +48,7 @@ public class DBWrapper {
 	PrimaryIndex<String, VisitedURL> visitedURLIndex;
 	PrimaryIndex<String, FrontierQueue> frontierQueueIndex;
 	PrimaryIndex<String, RobotMap> RobotMapIndex;
+	static Logger log = Logger.getLogger(DBWrapper.class);
 	
 	/* TODO: write object store wrapper for BerkeleyDB */
 	private DBWrapper(String envDirectory){
@@ -201,11 +212,15 @@ public class DBWrapper {
 	/* Related Method for OutLinks */
 	
 	public synchronized OutLinks getOutLinks(String url) {
-		return outLinksIndex.get(url);
+		synchronized(outLinksIndex) {
+			return outLinksIndex.get(url);
+		}
 	}
 	
 	public synchronized void putOutLinks(OutLinks outlinks) {
-		outLinksIndex.put(outlinks);
+		synchronized(outLinksIndex) {
+			outLinksIndex.put(outlinks);
+		}
 		sync();
 	}
 	
@@ -270,11 +285,15 @@ public class DBWrapper {
 	}
 	
 	public long getVisitedSize(){
-		return visitedURLIndex.count();
+		synchronized(visitedURLIndex) {
+			return visitedURLIndex.count();
+		}
 	}
 	
 	public boolean visitedURLcontains(String url) {
-		return visitedURLIndex.contains(url);
+		synchronized(visitedURLIndex) {
+			return visitedURLIndex.contains(url);
+		}
 	}
 	
 	
@@ -382,10 +401,30 @@ public class DBWrapper {
 	
 	
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws IOException{
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
-		System.out.println(db.getFrontierQueueSize());
-		db.setRobotLastVisited("www.facebook.com");
-		System.out.println(RobotCache.isValid("https://www.facebook.com"));
+//		System.out.println(System.getenv().get("AWS_KEY"));
+//		Map<String, String> env = System.getenv();
+//        for (String envName : env.keySet()) {
+//            System.out.format("%s=%s%n",
+//                              envName,
+//                              env.get(envName));
+//        }
+//        Properties prop = new Properties();
+//        String propFileName = "config.properties";
+//		InputStream inputStream = DBWrapper.class.getClassLoader().getResourceAsStream(propFileName);
+//		if (inputStream != null) {
+//			prop.load(inputStream);
+//		} else {
+//			throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+//		}
+//		System.out.println(prop.getProperty("KEY"));
+
+		System.out.println(db.getVisitedSize());
+//		System.out.println(RobotCache.isValid("https://www.facebook.com"));
+//		System.out.println(System.setProperty("AWS_ID", "aaa"));
+//		System.out.println(System.getProperty("AWS_ID"));
+		
+
 	}
 }

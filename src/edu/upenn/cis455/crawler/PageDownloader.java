@@ -2,8 +2,11 @@ package edu.upenn.cis455.crawler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.util.Calendar;
 
@@ -66,10 +69,10 @@ public class PageDownloader {
 		//db.putPage(url, content, type);	 
 		//db.sync();
 		
-		
 		AWSCredentials credentials = new BasicAWSCredentials(
-				"AKIAI65NTKS2KL3VZ4LA",  // AWSaccessKeyID
-				"uIDgLZYo/mFBCvXDMFMSx4sGKF3/e7pmgeHWjQn9");   //  AWSSecretKey
+				System.getProperty("KEY"),  
+				System.getProperty("ID"));   
+				
 		uploadfileS3(credentials, url, content);
 		
 	}

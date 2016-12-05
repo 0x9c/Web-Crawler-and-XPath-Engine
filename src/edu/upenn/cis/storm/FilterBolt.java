@@ -83,7 +83,7 @@ public class FilterBolt implements IRichBolt{
 		long step1 = System.currentTimeMillis();
 		urlQueue.setOutLinks(url, linksToCheck);
 		long step2 = System.currentTimeMillis();
-		log.info(url + " <----> Outlinks Recorded" + "step1: " + (step1-start) + "ms " + "step2: " + (step2-step1) + "ms");	
+		log.info(url + " <----> Outlinks Recorded " + "step1: " + (step1-start) + "ms " + "step2: " + (step2-step1) + "ms");	
 		
 		long max = 0;
 		long step3 = 0;
