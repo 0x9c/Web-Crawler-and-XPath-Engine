@@ -354,10 +354,7 @@ public class DBWrapper {
 	}
 	
 	public boolean getRobotIsURLValid(String hostname, String url) {
-		RobotMap m = getRobotMap(hostname);
-		boolean res = m.isURLValid(url);
-		putRobotMap(m);
-		return res;
+		return getRobotMap(hostname).isURLValid(url);
 	}
 	
 	public long getRobotLastVisited(String hostname){
@@ -388,6 +385,7 @@ public class DBWrapper {
 	public static void main(String[] args){
 		DBWrapper db = DBWrapper.getInstance("./dtianx");
 		System.out.println(db.getFrontierQueueSize());
+		db.setRobotLastVisited("www.facebook.com");
 		System.out.println(RobotCache.isValid("https://www.facebook.com"));
 	}
 }
